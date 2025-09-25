@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>Ampliación de Sistemas Informáticos</title>
+    <link href="https://RubenGarcia11.github.io/2damasi/feed.xml" rel="self" />
+    <link href="https://RubenGarcia11.github.io/2damasi" />
+    <updated>2025-09-25T20:32:57+02:00</updated>
+    <author>
+        <name>Rubén García</name>
+    </author>
+    <id>https://RubenGarcia11.github.io/2damasi</id>
+
+    <entry>
+        <title>Inteligencia Artificial en la Educación</title>
+        <author>
+            <name>Rubén García</name>
+        </author>
+        <link href="https://RubenGarcia11.github.io/2damasi/inteligencia-artificial-en-la-educacion.html"/>
+        <id>https://RubenGarcia11.github.io/2damasi/inteligencia-artificial-en-la-educacion.html</id>
+
+        <updated>2025-09-25T20:32:57+02:00</updated>
+            <summary>
+                <![CDATA[
+                    La inteligencia artificial (IA) se ha convertido en una de las herramientas más innovadoras y transformadoras en el ámbito educativo. Su integración en las aulas y en los entornos de aprendizaje permite personalizar la enseñanza, optimizar recursos y mejorar la experiencia tanto de estudiantes como&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p data-start="288" data-end="602"><img loading="lazy" src="https://megaprofe.es/wp-content/uploads/2024/06/DALL%C2%B7E-2024-06-03-19.03.29-A-wide-image-illustrating-the-impact-of-AI-on-learning-teaching-and-education.-The-scene-should-be-a-modern-classroom-setting-with-students-of-vario.webp" alt="Impacto de la Inteligencia artificial en el aprendizaje, la enseñanza y la  educación - Megaprofe" data-is-external-image="true"></p>
+<p data-start="288" data-end="602">La inteligencia artificial (IA) se ha convertido en una de las herramientas más innovadoras y transformadoras en el ámbito educativo. Su integración en las aulas y en los entornos de aprendizaje permite personalizar la enseñanza, optimizar recursos y mejorar la experiencia tanto de estudiantes como de docentes.</p>
+<h2 data-start="604" data-end="631">Beneficios principales</h2>
+<ul data-start="633" data-end="1713">
+<li data-start="633" data-end="830">
+<p data-start="635" data-end="830"><strong data-start="635" data-end="665">Aprendizaje personalizado:</strong><br data-start="665" data-end="668">Los sistemas basados en IA pueden adaptarse al ritmo y estilo de cada estudiante, ofreciendo ejercicios, recursos y explicaciones ajustadas a sus necesidades.</p>
+</li>
+<li data-start="832" data-end="1048">
+<p data-start="834" data-end="1048"><strong data-start="834" data-end="859">Asistencia inmediata:</strong><br data-start="859" data-end="862">Chatbots y tutores virtuales proporcionan respuestas rápidas a dudas frecuentes, favoreciendo la autonomía del alumno y permitiendo un aprendizaje continuo fuera del horario escolar.</p>
+</li>
+<li data-start="1050" data-end="1244">
+<p data-start="1052" data-end="1244"><strong data-start="1052" data-end="1079">Evaluación inteligente:</strong><br data-start="1079" data-end="1082">La IA facilita la corrección automática de exámenes y tareas, además de identificar patrones de error que ayudan a reforzar áreas específicas de conocimiento.</p>
+</li>
+<li data-start="1246" data-end="1505">
+<p data-start="1248" data-end="1505"><strong data-start="1248" data-end="1269">Acceso inclusivo:</strong><br data-start="1269" data-end="1272">Herramientas de accesibilidad potenciadas por IA, como lectores de texto, traductores automáticos o sistemas de reconocimiento de voz, amplían las oportunidades para estudiantes con necesidades especiales o barreras lingüísticas.</p>
+</li>
+<li data-start="1507" data-end="1713">
+<p data-start="1509" data-end="1713"><strong data-start="1509" data-end="1545">Optimización del tiempo docente:</strong><br data-start="1545" data-end="1548">Al delegar tareas repetitivas y administrativas a la IA, los profesores pueden centrarse en la enseñanza, la innovación y la interacción directa con los alumnos.</p>
+</li>
+</ul>
+<h2 data-start="1715" data-end="1730">Conclusión</h2>
+<p data-start="1732" data-end="2068">La inteligencia artificial no sustituye al docente, sino que se convierte en un aliado estratégico para mejorar los procesos educativos. En la asignatura de <em data-start="1889" data-end="1926">Ampliación de Sistemas Informáticos</em>, reflexionar sobre su papel resulta fundamental, ya que nos permite comprender cómo la tecnología está moldeando el futuro del aprendizaje.</p>
+            ]]>
+        </content>
+    </entry>
+</feed>
