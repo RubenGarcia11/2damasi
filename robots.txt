@@ -1,3 +1,2 @@
 User-agent: *
-Disallow:
-Sitemap: https://RubenGarcia11.github.io/2damasi/sitemap.xml
+Disallow: /
