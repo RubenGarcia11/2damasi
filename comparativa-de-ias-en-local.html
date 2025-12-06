@@ -1,75 +1,291 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>Comparativa de IAs en local - Ampliación de Sistemas Informáticos</title><meta name="robots" content="noindex,nofollow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://RubenGarcia11.github.io/2damasi/feed.xml" title="Ampliación de Sistemas Informáticos - RSS"><link rel="alternate" type="application/json" href="https://RubenGarcia11.github.io/2damasi/feed.json" title="Ampliación de Sistemas Informáticos - JSON"><meta property="og:title" content="Comparativa de IAs en local"><meta property="og:site_name" content="Ampliación de Sistemas Informáticos"><meta property="og:description" content="Introducción: Esta documentación recoge los resultados de las pruebas de rendimiento (benchmarking) realizadas sobre distintos modelos de lenguaje ejecutados localmente. El entorno de&hellip;"><meta property="og:url" content="https://RubenGarcia11.github.io/2damasi/comparativa-de-ias-en-local.html"><meta property="og:type" content="article"><link rel="stylesheet" href="https://RubenGarcia11.github.io/2damasi/assets/css/fontawesome-all.min.css?v=85514f933f9e0b82460af63f1a403fa5"><link rel="stylesheet" href="https://RubenGarcia11.github.io/2damasi/assets/css/style.css?v=a43d11e6c8e1828dd0b983b73b3cdb13"><noscript><link rel="stylesheet" href="https://RubenGarcia11.github.io/2damasi/assets/css/noscript.css?v=efa867a99f5064d6729e4dc2008ad50b"></noscript><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://RubenGarcia11.github.io/2damasi/comparativa-de-ias-en-local.html"},"headline":"Comparativa de IAs en local","datePublished":"2025-12-06T17:38+01:00","dateModified":"2025-12-06T22:29+01:00","description":"Introducción: Esta documentación recoge los resultados de las pruebas de rendimiento (benchmarking) realizadas sobre distintos modelos de lenguaje ejecutados localmente. El entorno de&hellip;","author":{"@type":"Person","name":"Rubén García","url":"https://RubenGarcia11.github.io/2damasi/authors/ruben-garcia/"},"publisher":{"@type":"Organization","name":"Rubén García"}}</script><style>#wrapper > .bg {
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>Comparativa de IAs en local - Ampliación de Sistemas Informáticos</title><meta name="robots" content="noindex,nofollow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://RubenGarcia11.github.io/2damasi/feed.xml" title="Ampliación de Sistemas Informáticos - RSS"><link rel="alternate" type="application/json" href="https://RubenGarcia11.github.io/2damasi/feed.json" title="Ampliación de Sistemas Informáticos - JSON"><meta property="og:title" content="Comparativa de IAs en local"><meta property="og:site_name" content="Ampliación de Sistemas Informáticos"><meta property="og:description" content="Introducción: Esta documentación recoge los resultados de las pruebas de rendimiento (benchmarking) realizadas sobre distintos modelos de lenguaje ejecutados localmente. El entorno de&hellip;"><meta property="og:url" content="https://RubenGarcia11.github.io/2damasi/comparativa-de-ias-en-local.html"><meta property="og:type" content="article"><link rel="stylesheet" href="https://RubenGarcia11.github.io/2damasi/assets/css/fontawesome-all.min.css?v=85514f933f9e0b82460af63f1a403fa5"><link rel="stylesheet" href="https://RubenGarcia11.github.io/2damasi/assets/css/style.css?v=a43d11e6c8e1828dd0b983b73b3cdb13"><noscript><link rel="stylesheet" href="https://RubenGarcia11.github.io/2damasi/assets/css/noscript.css?v=efa867a99f5064d6729e4dc2008ad50b"></noscript><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://RubenGarcia11.github.io/2damasi/comparativa-de-ias-en-local.html"},"headline":"Comparativa de IAs en local","datePublished":"2025-12-06T17:38+01:00","dateModified":"2025-12-06T22:52+01:00","description":"Introducción: Esta documentación recoge los resultados de las pruebas de rendimiento (benchmarking) realizadas sobre distintos modelos de lenguaje ejecutados localmente. El entorno de&hellip;","author":{"@type":"Person","name":"Rubén García","url":"https://RubenGarcia11.github.io/2damasi/authors/ruben-garcia/"},"publisher":{"@type":"Organization","name":"Rubén García"}}</script><style>#wrapper > .bg {
                background-image: url(https://RubenGarcia11.github.io/2damasi/assets/images/overlay.png), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url();
            }</style><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript></head><body class="is-preload post-template"><div id="wrapper"><header id="header"><a class="logo" href="https://RubenGarcia11.github.io/2damasi/">Ampliación de Sistemas Informáticos</a></header><main id="main"><article class="post"><header class="major"><time datetime="2025-12-06T17:38" class="date">diciembre 6, 2025</time><h1>Comparativa de IAs en local</h1><p class="post__inner"></p></header><div class="post__inner post__entry"><h1>Introducción:</h1><p>Esta documentación recoge los resultados de las pruebas de rendimiento (<i>benchmarking</i>) realizadas sobre distintos modelos de lenguaje ejecutados localmente. El entorno de pruebas consiste en un Mac mini equipado con el procesador M4 y 16 GB de memoria unificada, hardware que define el nuevo estándar de eficiencia en el borde. El estudio se estructura en dos dimensiones críticas: un análisis cuantitativo, enfocado en la latencia y el caudal de datos mediante la medición de Tokens por Segundo (TPS), Tiempo al Primer Token (TTFT) y Tokens Totales; y una validación cualitativa, centrada en la capacidad de razonamiento lógico. Para esta última, se somete a los modelos a una batería de acertijos, seleccionados específicamente por representar uno de los desafíos más complejos para la desambiguación semántica y el pensamiento lateral en la inteligencia artificial actual.</p><h1>Elección de modelos:</h1><p>Para la fase experimental, se ha seleccionado un conjunto heterogéneo de modelos que abarca desde arquitecturas ultra ligeras (<i>Small Language Models</i>) hasta modelos de tamaño medio, todos ellos compatibles con el presupuesto de memoria unificada de 16 GB del equipo. La selección incluye la familia <strong>Qwen3 VI</strong> en sus variantes de <strong>8B y 4B</strong>, lo que permitirá analizar el escalado de rendimiento y razonamiento dentro de una misma arquitectura base. Se incorpora el <strong>Lfm2 de 1,2B </strong>con el objetivo de establecer una línea base de latencia mínima y eficiencia extrema, y finalmente, el <strong>Gemma2-2-9b</strong>, que con su mayor densidad de parámetros servirá para evaluar el compromiso entre el consumo de recursos y la capacidad de resolución de problemas complejos (acertijos) frente a sus contrapartes más ligeras.</p><h3 data-path-to-node="1">Descripción de los Retos Cualitativos (Acertijos)</h3><p data-path-to-node="1,0">La evaluación cualitativa se basa en una batería de cinco acertijos, cada uno seleccionado para evaluar una competencia cognitiva específica:</p><ul data-path-to-node="1,1"><li><p data-path-to-node="1,1,0,0"><strong>Atención al contexto (<i>El padre de Juan</i>):</strong> Evalúa si el modelo es capaz de retener y priorizar la premisa lógica inicial ("el padre de Juan") en lugar de caer en una autocompletación estadística simple continuando la lista de nombres.</p></li><li><p data-path-to-node="1,1,1,0"><strong>Abstracción física (<i>El agujero</i>):</strong> Pone a prueba la comprensión de conceptos definidos por la sustracción o ausencia de materia, desafiando la lógica física convencional donde "quitar" suele implicar "reducir".</p></li><li><p data-path-to-node="1,1,2,0"><strong>Relaciones de propiedad (<i>El nombre</i>):</strong> Analiza la capacidad del modelo para procesar paradojas de posesión, distinguiendo entre la propiedad de un atributo abstracto y la frecuencia de su uso por agentes externos.</p></li><li><p data-path-to-node="1,1,3,0"><strong>Simbolismo vs. Realidad (<i>El mapa</i>):</strong> Examina la desambiguación semántica, obligando a la IA a diferenciar entre las características físicas de los objetos geográficos (montañas, agua) y sus representaciones gráficas o simbólicas.</p></li><li><p data-path-to-node="1,1,4,0"><strong>Lógica temporal y secuencial (<i>La edad de Juan</i>):</strong> Representa el desafío de mayor complejidad (<i>Edge Case</i>). Requiere que el modelo realice inferencias sobre el paso del tiempo y el funcionamiento del calendario (cambio de año) para resolver una aparente inconsistencia aritmética en la secuencia de edades.</p></li></ul><h1>Análisis individual</h1><p>Vamos a realizar un análisis sobre cada modelo y para poder evaluar y comparar posteriormente.</p><h3 data-path-to-node="3">1. Liquid Lfm2 1.2B: Velocidad Extrema vs. Coherencia Lógica</h3><p data-path-to-node="4">Este modelo destaca por ser una arquitectura experimental ligera ("Liquid"), diseñada para velocidad pura.</p><ul data-path-to-node="5"><li><p data-path-to-node="5,0,0"><strong>Análisis Cuantitativo:</strong></p><ul data-path-to-node="5,0,1"><li><p data-path-to-node="5,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Es, con diferencia, el más rápido, manteniendo un promedio sostenido de <strong>~75 tokens/segundo</strong>.</p></li><li><p data-path-to-node="5,0,1,1,0"><strong>Latencia (TTFT):</strong> Respuesta casi instantánea (~0.2s), ideal para interacciones en tiempo real.</p></li><li><p data-path-to-node="5,0,1,2,0"><strong>Consumo:</strong> Genera respuestas breves (promedio &lt;150 tokens), lo que ahorra ancho de banda de memoria.</p></li></ul></li><li><p data-path-to-node="5,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p><ul data-path-to-node="5,1,1"><li><p data-path-to-node="5,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Muy bajo (20% de acierto)</strong>.</p></li><li><p data-path-to-node="5,1,1,1,0"><strong>Fallos Críticos:</strong> Demostró una incapacidad severa para retener el contexto lógico inmediato. En el primer acertijo (<i>El padre de Juan</i>), a pesar de tener los nombres en la premisa, respondió "Ana", cayendo en la trampa estadística de completar la lista en lugar de usar la lógica.</p></li><li><p data-path-to-node="5,1,1,2,0"><strong>Alucinaciones:</strong> En los acertijos abstractos (<i>Agujero, Nombre</i>), respondió con objetos tangibles ("Libro", "Vaso") o conceptos erróneos ("Conocimiento"), mostrando falta de capacidad de abstracción.</p></li></ul></li><li><p data-path-to-node="5,2,0"><strong>Veredicto Técnico:</strong> Modelo inviable para tareas de razonamiento lógico o "Chain of Thought". Su uso queda restringido a tareas de clasificación simple o autocompletado de código muy básico donde la velocidad es la única prioridad.</p></li></ul><hr data-path-to-node="6"><h3 data-path-to-node="7">2. Google Gemma 2 9B: El Estándar de Eficiencia Semántica</h3><p data-path-to-node="8">A pesar de ser el modelo más pesado del grupo (9B parámetros), mostró el comportamiento más "humano" y directo.</p><ul data-path-to-node="9"><li><p data-path-to-node="9,0,0"><strong>Análisis Cuantitativo:</strong></p><ul data-path-to-node="9,0,1"><li><p data-path-to-node="9,0,1,0,0"><strong>Velocidad de Inferencia:</strong> El más lento del grupo (<strong>~16.5 t/s</strong>), esperable dado su tamaño y el ancho de banda de memoria del M4.</p></li><li><p data-path-to-node="9,0,1,1,0"><strong>Eficiencia de Tokens:</strong> Extremadamente alta. Es el modelo más conciso. Para resolver acertijos donde otros usaron 500 tokens, Gemma usó <strong>entre 25 y 40 tokens</strong>. Esto compensa su baja velocidad de generación, entregando la respuesta completa al usuario muy rápido.</p></li></ul></li><li><p data-path-to-node="9,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p><ul data-path-to-node="9,1,1"><li><p data-path-to-node="9,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Alto (80% de acierto)</strong>.</p></li><li><p data-path-to-node="9,1,1,1,0"><strong>Estilo de Respuesta:</strong> Directo al grano. No divaga.</p></li><li><p data-path-to-node="9,1,1,2,0"><strong>El Fallo:</strong> No logró resolver el <i>Edge Case</i> temporal (Acertijo 5: "La edad de Juan"). Aunque intentó razonarlo, se confundió con la aritmética de las fechas y dio una explicación genérica sobre "cumplir años hoy", sin resolver la paradoja del cambio de año (31 de diciembre).</p></li></ul></li><li><p data-path-to-node="9,2,0"><strong>Veredicto Técnico:</strong> La mejor opción para asistentes de chat generales donde se valore la precisión y la concisión sobre la velocidad de generación bruta.</p></li></ul><hr data-path-to-node="10"><h3 data-path-to-node="11">3. Qwen3 VI 4B: El Equilibrio (Sweet Spot)</h3><p data-path-to-node="12">La versión pequeña de Qwen sorprendió gratamente, superando a su hermano mayor en velocidad y manteniendo un nivel de razonamiento similar.</p><ul data-path-to-node="13"><li><p data-path-to-node="13,0,0"><strong>Análisis Cuantitativo:</strong></p><ul data-path-to-node="13,0,1"><li><p data-path-to-node="13,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Muy sólida (<strong>~35 t/s</strong>), duplicando la velocidad de Gemma 9B.</p></li><li><p data-path-to-node="13,0,1,1,0"><strong>Verbosidad:</strong> Alta. Tiende a realizar un "pensamiento en voz alta" (<i>Chain of Thought</i> implícito), generando cientos de tokens (500+) para explicar una respuesta que Gemma da en 30.</p></li></ul></li><li><p data-path-to-node="13,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p><ul data-path-to-node="13,1,1"><li><p data-path-to-node="13,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Alto (80% de acierto)</strong>.</p></li><li><p data-path-to-node="13,1,1,1,0"><strong>Hito Destacado:</strong> Fue capaz de resolver el acertijo más difícil (Acertijo 5), deduciendo correctamente la lógica del "31 de diciembre" tras un largo razonamiento.</p></li><li><p data-path-to-node="13,1,1,2,0"><strong>El Fallo:</strong> Se confundió en el acertijo del "Agujero" (Acertijo 2), entrando en un bucle extraño donde propuso "El agua" y "La letra A" de forma errática.</p></li></ul></li><li><p data-path-to-node="13,2,0"><strong>Veredicto Técnico:</strong> Probablemente la mejor opción equilibrada para el Mac mini M4. Ofrece razonamiento complejo a una velocidad muy fluida, aunque requiere <i>prompts</i> de sistema que limiten su tendencia a hablar demasiado ("verbosidad").</p></li></ul><hr data-path-to-node="14"><h3 data-path-to-node="15">4. Qwen3 VI 8B: Razonamiento Excesivo (Overthinking)</h3><p data-path-to-node="16">Este modelo mostró un comportamiento de "sobre-análisis", lo que penalizó su rendimiento general sin aportar una ventaja clara sobre la versión de 4B en estas pruebas específicas.</p><ul data-path-to-node="17"><li><p data-path-to-node="17,0,0"><strong>Análisis Cuantitativo:</strong></p><ul data-path-to-node="17,0,1"><li><p data-path-to-node="17,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Moderada (<strong>~20 t/s</strong>), ligeramente superior a Gemma pero lejos del 4B.</p></li><li><p data-path-to-node="17,0,1,1,0"><strong>Latencia Acumulada:</strong> Muy alta debido a su extrema verbosidad. En el último acertijo generó <strong>1604 tokens</strong>, tardando más de 9 segundos en finalizar la respuesta.</p></li></ul></li><li><p data-path-to-node="17,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p><ul data-path-to-node="17,1,1"><li><p data-path-to-node="17,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Medio-Alto (60-80% variable)</strong>.</p></li><li><p data-path-to-node="17,1,1,1,0"><strong>Comportamiento de Bucle:</strong> En el último acertijo, aunque llegó a la conclusión correcta (31 de diciembre), entró en un bucle de repetición de argumentos (<i>"¡No! ¡No! ¡No!"</i>) visible en los logs. Esto sugiere una inestabilidad en la penalización por repetición o una temperatura (0.7) demasiado alta para su ventana de contexto lógica.</p></li><li><p data-path-to-node="17,1,1,2,0"><strong>Alucinación:</strong> Falló en el acertijo del "Agujero", obsesionándose con "La letra A" de una forma mucho más obstinada que la versión de 4B.</p></li></ul></li><li><p data-path-to-node="17,2,0"><strong>Veredicto Técnico:</strong> Menos eficiente que la versión de 4B para esta configuración. Su tendencia a divagar consume recursos innecesarios y tiempo de usuario, sin ofrecer una precisión superior en esta batería de pruebas.</p></li></ul><h1>Comparativa de modelos:</h1><p data-path-to-node="3">Tras evaluar individualmente los cuatro modelos seleccionados, este análisis cruzado busca identificar el compromiso ideal (<i>trade-off</i>) entre velocidad de inferencia, capacidad de razonamiento y experiencia de usuario.</p><h3 data-path-to-node="4">1. La Frontera de Eficiencia: Velocidad vs. Inteligencia</h3><p data-path-to-node="5">Existe una correlación inversa casi perfecta entre la velocidad de generación y la capacidad lógica.</p><ul data-path-to-node="6"><li><p data-path-to-node="6,0,0"><strong>El extremo de la velocidad (Lfm2 1.2B):</strong> Con <strong>~75 t/s</strong>, este modelo satura la capacidad de procesamiento del chip M4, ofreciendo una latencia imperceptible. Sin embargo, su <strong>tasa de acierto del 20%</strong> en pruebas lógicas lo descalifica para tareas complejas. Actúa más como un autocompletar predictivo que como un asistente de razonamiento.</p></li><li><p data-path-to-node="6,1,0"><strong>El "Punto Dulce" (Qwen3 VI 4B):</strong> Se posiciona como el equilibrio ideal. Con <strong>~35 t/s</strong>, es lo suficientemente rápido para sentirse fluido (superando la velocidad de lectura humana), y sorprendentemente, fue el único capaz de resolver el acertijo más complejo (<i>lógica temporal</i>), superando incluso a modelos con el doble de parámetros.</p></li><li><p data-path-to-node="6,2,0"><strong>El coste de la densidad (Gemma 2 9B y Qwen 8B):</strong> Al subir a tamaños de 8B/9B, la velocidad cae a la franja de <strong>16-20 t/s</strong>. Si bien sigue siendo utilizable, la mejora en razonamiento no siempre justifica la caída del 50% en velocidad, especialmente en el caso de Qwen 8B, que mostró inestabilidad.</p></li></ul><h3 data-path-to-node="7">2. Estilo de Respuesta: Concisión vs. Verbosidad (Chain of Thought)</h3><p data-path-to-node="8">Uno de los hallazgos más notables del estudio es la diferencia en la "personalidad" de los modelos, lo que afecta directamente a la experiencia de usuario y al consumo de memoria.</p><div class="horizontal-scroll-wrapper"><div class="table-block-component"><div class="table-block has-export-button"><div class="table-content not-end-of-paragraph" data-hveid="0" data-ved="0CAAQ3ecQahgKEwjWkqX1sKmRAxUAAAAAHQAAAAAQmgY"><table data-path-to-node="9"><thead><tr><td><span data-path-to-node="9,0,0,0">Característica</span></td><td><span data-path-to-node="9,0,1,0">Gemma 2 9B</span></td><td><span data-path-to-node="9,0,2,0">Qwen3 VI (4B y 8B)</span></td></tr></thead><tbody><tr><td><span data-path-to-node="9,1,0,0"><strong>Enfoque</strong></span></td><td><span data-path-to-node="9,1,1,0"><strong>Resultado Final</strong></span></td><td><span data-path-to-node="9,1,2,0"><strong>Razonamiento (CoT)</strong></span></td></tr><tr><td><span data-path-to-node="9,2,0,0"><strong>Promedio Tokens</strong></span></td><td><span data-path-to-node="9,2,1,0">~30 tokens por respuesta</span></td><td><span data-path-to-node="9,2,2,0">&gt;500 tokens por respuesta</span></td></tr><tr><td><span data-path-to-node="9,3,0,0"><strong>Experiencia</strong></span></td><td><span data-path-to-node="9,3,1,0">Directa, estilo asistente de voz.</span></td><td><span data-path-to-node="9,3,2,0">Divagante, estilo profesor explicando.</span></td></tr><tr><td><span data-path-to-node="9,4,0,0"><strong>Ventaja</strong></span></td><td><span data-path-to-node="9,4,1,0">Menor tiempo de lectura para el usuario.</span></td><td><span data-path-to-node="9,4,2,0">Mayor probabilidad de acierto en lógica compleja al "pensar en voz alta".</span></td></tr></tbody></table><blockquote data-path-to-node="10"><p data-path-to-node="10,0"><strong>Observación Crítica:</strong> Aunque <strong>Gemma 2</strong> es más lento generando cada token, a menudo entrega la respuesta completa <strong>antes</strong> que Qwen, simplemente porque tiene que generar mucho menos texto. Qwen tiende a entrar en bucles de validación (<i>"¡No! ¡Espera! ¡Correcto!"</i>) que consumen tiempo y recursos inútilmente, como se vio en el log del modelo de 8B.</p></blockquote><h3 data-path-to-node="11">3. Fiabilidad y Alucinaciones</h3><ul data-path-to-node="12"><li><p data-path-to-node="12,0,0"><strong>Estabilidad:</strong> <strong>Gemma 2 9B</strong> demostró ser el modelo más estable. Aunque falló el último acertijo, su error fue coherente y gramaticalmente perfecto.</p></li><li><p data-path-to-node="12,1,0"><strong>Inestabilidad en Modelos Medios:</strong> <strong>Qwen3 VI 8B</strong> mostró el comportamiento más preocupante. A pesar de tener más parámetros que la versión 4B, sufrió de "colapso de contexto" en el último acertijo, repitiendo la frase <i>"¡No! ¡No! ¡No!"</i> múltiples veces. Esto sugiere que la cuantización o la configuración de temperatura (0.7) afecta más negativamente al modelo de 8B en este hardware que al de 4B.</p></li></ul><h3 data-path-to-node="13">Veredicto Final: ¿Cuál es el mejor modelo para el M4?</h3><p data-path-to-node="14">Basándonos en la evidencia empírica de este banco de pruebas:</p><h4 data-path-to-node="15">🏆 Ganador Global: <strong>Qwen3 VI 4B</strong></h4><p data-path-to-node="16">Es el modelo que mejor aprovecha el hardware. Ofrece una velocidad excelente (<strong>35 t/s</strong>) y fue el <strong>único capaz de resolver el 100% de los acertijos lógicos</strong>, incluyendo el desafío de fechas. Su única desventaja es su verbosidad, que puede mitigarse con instrucciones de sistema (<i>system prompt</i>) pidiendo brevedad.</p><h4 data-path-to-node="17">🥈 Mención Honorífica (Mejor Asistente): <strong>Gemma 2 9B</strong></h4><p data-path-to-node="18">Ideal si se prioriza una interacción humana, educada y concisa. Es el modelo que se "siente" más inteligente en el trato, aunque carezca de la capacidad de profundidad lógica extrema del Qwen 4B para resolver paradojas temporales.</p><h4 data-path-to-node="19">❌ No Recomendado: <strong>Qwen3 VI 8B</strong></h4><p data-path-to-node="20">En esta configuración específica, no aporta valor sobre la versión de 4B. Es más lento, consumió más memoria y mostró inestabilidad algorítmica (bucles de repetición).</p><p data-path-to-node="20"> </p><div style="display: flex; justify-content: center; width: 100%; max-width: 900px; margin: 0 auto;"><script src="https://cdn.plot.ly/plotly-latest.min.js"></script><div id="chart-div" style="width: 100%; height: 550px;"></div><script type="text/javascript">var models = ["Gemma 2 9B", "Qwen3 VI 8B", "Qwen3 VI 4B", "Lfm2 1.2B"];
-        
-        // Datos extraídos del análisis
-        var speed = [16.51, 20.8, 35.84, 75.47];
-        var accuracy = [80, 60, 80, 20];
-        var ttft = [0.5, 4.65, 2.97, 0.22];
-        var verbosity = [31, 642, 657, 121];
+                }</style></noscript></head><body class="is-preload post-template"><div id="wrapper"><header id="header"><a class="logo" href="https://RubenGarcia11.github.io/2damasi/">Ampliación de Sistemas Informáticos</a></header><main id="main"><article class="post"><header class="major"><time datetime="2025-12-06T17:38" class="date">diciembre 6, 2025</time><h1>Comparativa de IAs en local</h1><p class="post__inner"></p></header><div class="post__inner post__entry"><h1>Introducción:</h1><p>Esta documentación recoge los resultados de las pruebas de rendimiento (<i>benchmarking</i>) realizadas sobre distintos modelos de lenguaje ejecutados localmente. El entorno de pruebas consiste en un Mac mini equipado con el procesador M4 y 16 GB de memoria unificada, hardware que define el nuevo estándar de eficiencia en el borde. El estudio se estructura en dos dimensiones críticas: un análisis cuantitativo, enfocado en la latencia y el caudal de datos mediante la medición de Tokens por Segundo (TPS), Tiempo al Primer Token (TTFT) y Tokens Totales; y una validación cualitativa, centrada en la capacidad de razonamiento lógico. Para esta última, se somete a los modelos a una batería de acertijos, seleccionados específicamente por representar uno de los desafíos más complejos para la desambiguación semántica y el pensamiento lateral en la inteligencia artificial actual.</p><h1>Elección de modelos:</h1><p>Para la fase experimental, se ha seleccionado un conjunto heterogéneo de modelos que abarca desde arquitecturas ultra ligeras (<i>Small Language Models</i>) hasta modelos de tamaño medio, todos ellos compatibles con el presupuesto de memoria unificada de 16 GB del equipo. La selección incluye la familia <strong>Qwen3 VI</strong> en sus variantes de <strong>8B y 4B</strong>, lo que permitirá analizar el escalado de rendimiento y razonamiento dentro de una misma arquitectura base. Se incorpora el <strong>Lfm2 de 1,2B </strong>con el objetivo de establecer una línea base de latencia mínima y eficiencia extrema, y finalmente, el <strong>Gemma2-2-9b</strong>, que con su mayor densidad de parámetros servirá para evaluar el compromiso entre el consumo de recursos y la capacidad de resolución de problemas complejos (acertijos) frente a sus contrapartes más ligeras.</p><h3 data-path-to-node="1">Descripción de los Retos Cualitativos (Acertijos)</h3><p data-path-to-node="2">Para validar la capacidad de razonamiento y coherencia de los modelos, se diseñó una batería secuencial de cinco desafíos lógicos. A continuación se detalla el objetivo técnico de cada prueba junto con el <i>prompt</i> exacto suministrado al modelo:</p><ul data-path-to-node="3"><li><p data-path-to-node="3,0,0"><strong>1. Prueba de Atención Contextual (<i>Anti-Hallucination</i>):</strong> Se evalúa la capacidad del modelo para retener la premisa inicial frente a la tendencia estadística de completar una serie.</p><blockquote data-path-to-node="3,0,1"><p data-path-to-node="3,0,1,0"><i>"El padre de Juan tiene 4 hijos: Lucas, Sandra, Ana y... ¿quién es el cuarto?"</i></p></blockquote></li><li><p data-path-to-node="3,1,0"><strong>2. Abstracción Física y Negativa:</strong> Desafío centrado en conceptos definidos por la ausencia de materia, lo cual suele confundir a modelos que priorizan la lógica física aditiva.</p><blockquote data-path-to-node="3,1,1"><p data-path-to-node="3,1,1,0"><i>"¿Qué es lo que cuanto más le quitas, más grande se hace?"</i></p></blockquote></li><li><p data-path-to-node="3,2,0"><strong>3. Paradoja de Propiedad vs. Uso:</strong> Evalúa la comprensión de relaciones abstractas de posesión frente a la frecuencia de uso por agentes externos.</p><blockquote data-path-to-node="3,2,1"><p data-path-to-node="3,2,1,0"><i>"¿Qué es algo que es tuyo, pero que los demás usan mucho más que tú?"</i></p></blockquote></li><li><p data-path-to-node="3,3,0"><strong>4. Desambiguación Semántica (Mapa vs. Territorio):</strong> Prueba de distinción entre representaciones simbólicas y objetos físicos reales para evitar alucinaciones visuales.</p><blockquote data-path-to-node="3,3,1"><p data-path-to-node="3,3,1,0"><i>"Tengo ciudades, pero no casas. Tengo montañas, pero no árboles. Tengo agua, pero no peces. ¿Qué soy?"</i></p></blockquote></li><li><p data-path-to-node="3,4,0"><strong>5. Lógica Temporal y Aritmética (<i>Edge Case</i>):</strong> El desafío de mayor complejidad. Requiere inferir el funcionamiento del calendario (cambio de año) para resolver una aparente inconsistencia matemática en la edad del sujeto.</p><blockquote data-path-to-node="3,4,1"><p data-path-to-node="3,4,1,0"><i>"Antes de ayer, Juan tenía 17 años. El año que viene, tendrá 20. ¿Cómo es esto posible?"</i></p></blockquote></li></ul><p data-path-to-node="1,0"><span style="color: #02192b; font-family: -apple-system, 'system-ui', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; font-size: 1.80203em; font-weight: bold; letter-spacing: -0.54px;">Análisis individual</span></p><p>Vamos a realizar un análisis sobre cada modelo y para poder evaluar y comparar posteriormente.</p><h3 data-path-to-node="3">1. Liquid Lfm2 1.2B: Velocidad Extrema vs. Coherencia Lógica</h3><p data-path-to-node="4">Este modelo destaca por ser una arquitectura experimental ligera ("Liquid"), diseñada para velocidad pura.</p><ul data-path-to-node="5"><li><p data-path-to-node="5,0,0"><strong>Análisis Cuantitativo:</strong></p><ul data-path-to-node="5,0,1"><li><p data-path-to-node="5,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Es, con diferencia, el más rápido, manteniendo un promedio sostenido de <strong>~75 tokens/segundo</strong>.</p></li><li><p data-path-to-node="5,0,1,1,0"><strong>Latencia (TTFT):</strong> Respuesta casi instantánea (~0.2s), ideal para interacciones en tiempo real.</p></li><li><p data-path-to-node="5,0,1,2,0"><strong>Consumo:</strong> Genera respuestas breves (promedio &lt;150 tokens), lo que ahorra ancho de banda de memoria.</p></li></ul></li><li><p data-path-to-node="5,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p><ul data-path-to-node="5,1,1"><li><p data-path-to-node="5,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Muy bajo (20% de acierto)</strong>.</p></li><li><p data-path-to-node="5,1,1,1,0"><strong>Fallos Críticos:</strong> Demostró una incapacidad severa para retener el contexto lógico inmediato. En el primer acertijo (<i>El padre de Juan</i>), a pesar de tener los nombres en la premisa, respondió "Ana", cayendo en la trampa estadística de completar la lista en lugar de usar la lógica.</p></li><li><figure class="post__image"><img loading="lazy" src="https://RubenGarcia11.github.io/2damasi/media/posts/6/Captura-de-pantalla-2025-12-06-a-las-22.45.42.png" alt="" width="1420" height="382" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.45.42-xs.png 300w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.45.42-sm.png 480w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.45.42-md.png 768w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.45.42-lg.png 1024w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.45.42-xl.png 1360w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.45.42-2xl.png 1600w"></figure></li><li><p data-path-to-node="5,1,1,2,0"><strong>Alucinaciones:</strong> En los acertijos abstractos (<i>Agujero, Nombre</i>), respondió con objetos tangibles ("Libro", "Vaso") o conceptos erróneos ("Conocimiento"), mostrando falta de capacidad de abstracción.</p></li><li><figure class="post__image"><img loading="lazy" src="https://RubenGarcia11.github.io/2damasi/media/posts/6/Captura-de-pantalla-2025-12-06-a-las-22.47.25.png" alt="" width="1190" height="382" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.47.25-xs.png 300w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.47.25-sm.png 480w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.47.25-md.png 768w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.47.25-lg.png 1024w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.47.25-xl.png 1360w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.47.25-2xl.png 1600w"></figure></li></ul></li><li><p data-path-to-node="5,2,0"><strong>Veredicto Técnico:</strong> Modelo inviable para tareas de razonamiento lógico o "Chain of Thought". Su uso queda restringido a tareas de clasificación simple o autocompletado de código muy básico donde la velocidad es la única prioridad.</p></li></ul><hr data-path-to-node="6"><h3 data-path-to-node="7">2. Google Gemma 2 9B: El Estándar de Eficiencia Semántica</h3><p data-path-to-node="8">A pesar de ser el modelo más pesado del grupo (9B parámetros), mostró el comportamiento más "humano" y directo.</p><ul data-path-to-node="9"><li><p data-path-to-node="9,0,0"><strong>Análisis Cuantitativo:</strong></p><ul data-path-to-node="9,0,1"><li><p data-path-to-node="9,0,1,0,0"><strong>Velocidad de Inferencia:</strong> El más lento del grupo (<strong>~16.5 t/s</strong>), esperable dado su tamaño y el ancho de banda de memoria del M4.</p></li><li><p data-path-to-node="9,0,1,1,0"><strong>Eficiencia de Tokens:</strong> Extremadamente alta. Es el modelo más conciso. Para resolver acertijos donde otros usaron 500 tokens, Gemma usó <strong>entre 25 y 40 tokens</strong>. Esto compensa su baja velocidad de generación, entregando la respuesta completa al usuario muy rápido.</p></li></ul></li><li><p data-path-to-node="9,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p><ul data-path-to-node="9,1,1"><li><p data-path-to-node="9,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Alto (80% de acierto)</strong>.</p></li><li><p data-path-to-node="9,1,1,1,0"><strong>Estilo de Respuesta:</strong> Directo al grano. No divaga.</p></li><li><p data-path-to-node="9,1,1,2,0"><strong>El Fallo:</strong> No logró resolver el <i>Edge Case</i> temporal (Acertijo 5: "La edad de Juan"). Aunque intentó razonarlo, se confundió con la aritmética de las fechas y dio una explicación genérica sobre "cumplir años hoy", sin resolver la paradoja del cambio de año (31 de diciembre).</p></li><li><figure class="post__image"><img loading="lazy" src="https://RubenGarcia11.github.io/2damasi/media/posts/6/Captura-de-pantalla-2025-12-06-a-las-22.48.18.png" alt="" width="1168" height="780" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.48.18-xs.png 300w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.48.18-sm.png 480w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.48.18-md.png 768w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.48.18-lg.png 1024w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.48.18-xl.png 1360w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-06-a-las-22.48.18-2xl.png 1600w"></figure></li></ul></li><li><p data-path-to-node="9,2,0"><strong>Veredicto Técnico:</strong> La mejor opción para asistentes de chat generales donde se valore la precisión y la concisión sobre la velocidad de generación bruta.</p></li></ul><hr data-path-to-node="10"><h3 data-path-to-node="11">3. Qwen3 VI 4B: El Equilibrio (Sweet Spot)</h3><p data-path-to-node="12">La versión pequeña de Qwen sorprendió gratamente, superando a su hermano mayor en velocidad y manteniendo un nivel de razonamiento similar.</p><ul data-path-to-node="13"><li><p data-path-to-node="13,0,0"><strong>Análisis Cuantitativo:</strong></p><ul data-path-to-node="13,0,1"><li><p data-path-to-node="13,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Muy sólida (<strong>~35 t/s</strong>), duplicando la velocidad de Gemma 9B.</p></li><li><p data-path-to-node="13,0,1,1,0"><strong>Verbosidad:</strong> Alta. Tiende a realizar un "pensamiento en voz alta" (<i>Chain of Thought</i> implícito), generando cientos de tokens (500+) para explicar una respuesta que Gemma da en 30.</p></li></ul></li><li><p data-path-to-node="13,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p><ul data-path-to-node="13,1,1"><li><p data-path-to-node="13,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Alto (80% de acierto)</strong>.</p></li><li><p data-path-to-node="13,1,1,1,0"><strong>Hito Destacado:</strong> Fue capaz de resolver el acertijo más difícil (Acertijo 5), deduciendo correctamente la lógica del "31 de diciembre" tras un largo razonamiento.</p></li><li><figure class="post__image"><img loading="lazy" src="https://RubenGarcia11.github.io/2damasi/media/posts/6/Captura-de-pantalla-2025-12-04-a-las-20.31.38.png" alt="" width="1920" height="1080" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.31.38-xs.png 300w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.31.38-sm.png 480w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.31.38-md.png 768w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.31.38-lg.png 1024w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.31.38-xl.png 1360w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.31.38-2xl.png 1600w"></figure></li><li><p data-path-to-node="13,1,1,2,0"><strong>El Fallo:</strong> Se confundió en el acertijo del "Agujero" (Acertijo 2), entrando en un bucle extraño donde propuso "El agua" y "La letra A" de forma errática.</p></li><li><figure class="post__image"><img loading="lazy" src="https://RubenGarcia11.github.io/2damasi/media/posts/6/Captura-de-pantalla-2025-12-04-a-las-20.12.44.png" alt="" width="1920" height="1080" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.12.44-xs.png 300w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.12.44-sm.png 480w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.12.44-md.png 768w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.12.44-lg.png 1024w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.12.44-xl.png 1360w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.12.44-2xl.png 1600w"></figure></li></ul></li><li><p data-path-to-node="13,2,0"><strong>Veredicto Técnico:</strong> Probablemente la mejor opción equilibrada para el Mac mini M4. Ofrece razonamiento complejo a una velocidad muy fluida, aunque requiere <i>prompts</i> de sistema que limiten su tendencia a hablar demasiado ("verbosidad").</p></li></ul><hr data-path-to-node="14"><h3 data-path-to-node="15">4. Qwen3 VI 8B: Razonamiento Excesivo (Overthinking)</h3><p data-path-to-node="16">Este modelo mostró un comportamiento de "sobre-análisis", lo que penalizó su rendimiento general sin aportar una ventaja clara sobre la versión de 4B en estas pruebas específicas.</p><ul data-path-to-node="17"><li><p data-path-to-node="17,0,0"><strong>Análisis Cuantitativo:</strong></p><ul data-path-to-node="17,0,1"><li><p data-path-to-node="17,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Moderada (<strong>~20 t/s</strong>), ligeramente superior a Gemma pero lejos del 4B.</p></li><li><p data-path-to-node="17,0,1,1,0"><strong>Latencia Acumulada:</strong> Muy alta debido a su extrema verbosidad. En el último acertijo generó <strong>1604 tokens</strong>, tardando más de 9 segundos en finalizar la respuesta.</p></li></ul></li><li><p data-path-to-node="17,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p><ul data-path-to-node="17,1,1"><li><p data-path-to-node="17,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Medio-Alto (60-80% variable)</strong>.</p></li><li><p data-path-to-node="17,1,1,1,0"><strong>Comportamiento de Bucle:</strong> En el último acertijo, aunque llegó a la conclusión correcta (31 de diciembre), entró en un bucle de repetición de argumentos (<i>"¡No! ¡No! ¡No!"</i>) visible en los logs. Esto sugiere una inestabilidad en la penalización por repetición o una temperatura (0.7) demasiado alta para su ventana de contexto lógica.</p></li><li><figure class="post__image"><img loading="lazy" src="https://RubenGarcia11.github.io/2damasi/media/posts/6/Captura-de-pantalla-2025-12-04-a-las-20.14.58.png" alt="" width="1920" height="1080" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.14.58-xs.png 300w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.14.58-sm.png 480w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.14.58-md.png 768w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.14.58-lg.png 1024w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.14.58-xl.png 1360w, https://RubenGarcia11.github.io/2damasi/media/posts/6/responsive/Captura-de-pantalla-2025-12-04-a-las-20.14.58-2xl.png 1600w"></figure></li><li><p data-path-to-node="17,1,1,2,0"><strong>Alucinación:</strong> Falló en el acertijo del "Agujero", obsesionándose con "La letra A" de una forma mucho más obstinada que la versión de 4B.</p></li></ul></li><li><p data-path-to-node="17,2,0"><strong>Veredicto Técnico:</strong> Menos eficiente que la versión de 4B para esta configuración. Su tendencia a divagar consume recursos innecesarios y tiempo de usuario, sin ofrecer una precisión superior en esta batería de pruebas.</p></li></ul><h1>Comparativa de modelos:</h1><p data-path-to-node="3">Tras evaluar individualmente los cuatro modelos seleccionados, este análisis cruzado busca identificar el compromiso ideal (<i>trade-off</i>) entre velocidad de inferencia, capacidad de razonamiento y experiencia de usuario.</p><h3 data-path-to-node="4">1. La Frontera de Eficiencia: Velocidad vs. Inteligencia</h3><p data-path-to-node="5">Existe una correlación inversa casi perfecta entre la velocidad de generación y la capacidad lógica.</p><ul data-path-to-node="6"><li><p data-path-to-node="6,0,0"><strong>El extremo de la velocidad (Lfm2 1.2B):</strong> Con <strong>~75 t/s</strong>, este modelo satura la capacidad de procesamiento del chip M4, ofreciendo una latencia imperceptible. Sin embargo, su <strong>tasa de acierto del 20%</strong> en pruebas lógicas lo descalifica para tareas complejas. Actúa más como un autocompletar predictivo que como un asistente de razonamiento.</p></li><li><p data-path-to-node="6,1,0"><strong>El "Punto Dulce" (Qwen3 VI 4B):</strong> Se posiciona como el equilibrio ideal. Con <strong>~35 t/s</strong>, es lo suficientemente rápido para sentirse fluido (superando la velocidad de lectura humana), y sorprendentemente, fue el único capaz de resolver el acertijo más complejo (<i>lógica temporal</i>), superando incluso a modelos con el doble de parámetros.</p></li><li><p data-path-to-node="6,2,0"><strong>El coste de la densidad (Gemma 2 9B y Qwen 8B):</strong> Al subir a tamaños de 8B/9B, la velocidad cae a la franja de <strong>16-20 t/s</strong>. Si bien sigue siendo utilizable, la mejora en razonamiento no siempre justifica la caída del 50% en velocidad, especialmente en el caso de Qwen 8B, que mostró inestabilidad.</p></li></ul><h3 data-path-to-node="7">2. Estilo de Respuesta: Concisión vs. Verbosidad (Chain of Thought)</h3><p data-path-to-node="8">Uno de los hallazgos más notables del estudio es la diferencia en la "personalidad" de los modelos, lo que afecta directamente a la experiencia de usuario y al consumo de memoria.</p><div class="horizontal-scroll-wrapper"><div class="table-block-component"><div class="table-block has-export-button"><div class="table-content not-end-of-paragraph" data-hveid="0" data-ved="0CAAQ3ecQahgKEwjWkqX1sKmRAxUAAAAAHQAAAAAQmgY"><table data-path-to-node="9"><thead><tr><td><span data-path-to-node="9,0,0,0">Característica</span></td><td><span data-path-to-node="9,0,1,0">Gemma 2 9B</span></td><td><span data-path-to-node="9,0,2,0">Qwen3 VI (4B y 8B)</span></td></tr></thead><tbody><tr><td><span data-path-to-node="9,1,0,0"><strong>Enfoque</strong></span></td><td><span data-path-to-node="9,1,1,0"><strong>Resultado Final</strong></span></td><td><span data-path-to-node="9,1,2,0"><strong>Razonamiento (CoT)</strong></span></td></tr><tr><td><span data-path-to-node="9,2,0,0"><strong>Promedio Tokens</strong></span></td><td><span data-path-to-node="9,2,1,0">~30 tokens por respuesta</span></td><td><span data-path-to-node="9,2,2,0">&gt;500 tokens por respuesta</span></td></tr><tr><td><span data-path-to-node="9,3,0,0"><strong>Experiencia</strong></span></td><td><span data-path-to-node="9,3,1,0">Directa, estilo asistente de voz.</span></td><td><span data-path-to-node="9,3,2,0">Divagante, estilo profesor explicando.</span></td></tr><tr><td><span data-path-to-node="9,4,0,0"><strong>Ventaja</strong></span></td><td><span data-path-to-node="9,4,1,0">Menor tiempo de lectura para el usuario.</span></td><td><span data-path-to-node="9,4,2,0">Mayor probabilidad de acierto en lógica compleja al "pensar en voz alta".</span></td></tr></tbody></table><blockquote data-path-to-node="10"><p data-path-to-node="10,0"><strong>Observación Crítica:</strong> Aunque <strong>Gemma 2</strong> es más lento generando cada token, a menudo entrega la respuesta completa <strong>antes</strong> que Qwen, simplemente porque tiene que generar mucho menos texto. Qwen tiende a entrar en bucles de validación (<i>"¡No! ¡Espera! ¡Correcto!"</i>) que consumen tiempo y recursos inútilmente, como se vio en el log del modelo de 8B.</p></blockquote><h3 data-path-to-node="11">3. Fiabilidad y Alucinaciones</h3><ul data-path-to-node="12"><li><p data-path-to-node="12,0,0"><strong>Estabilidad:</strong> <strong>Gemma 2 9B</strong> demostró ser el modelo más estable. Aunque falló el último acertijo, su error fue coherente y gramaticalmente perfecto.</p></li><li><p data-path-to-node="12,1,0"><strong>Inestabilidad en Modelos Medios:</strong> <strong>Qwen3 VI 8B</strong> mostró el comportamiento más preocupante. A pesar de tener más parámetros que la versión 4B, sufrió de "colapso de contexto" en el último acertijo, repitiendo la frase <i>"¡No! ¡No! ¡No!"</i> múltiples veces. Esto sugiere que la cuantización o la configuración de temperatura (0.7) afecta más negativamente al modelo de 8B en este hardware que al de 4B.</p></li></ul><h3 data-path-to-node="13">Veredicto Final: ¿Cuál es el mejor modelo para el M4?</h3><p data-path-to-node="14">Basándonos en la evidencia empírica de este banco de pruebas:</p><h4 data-path-to-node="15">🏆 Ganador Global: <strong>Qwen3 VI 4B</strong></h4><p data-path-to-node="16">Es el modelo que mejor aprovecha el hardware. Ofrece una velocidad excelente (<strong>35 t/s</strong>) y fue el <strong>único capaz de resolver el 100% de los acertijos lógicos</strong>, incluyendo el desafío de fechas. Su única desventaja es su verbosidad, que puede mitigarse con instrucciones de sistema (<i>system prompt</i>) pidiendo brevedad.</p><h4 data-path-to-node="17">🥈 Mención Honorífica (Mejor Asistente): <strong>Gemma 2 9B</strong></h4><p data-path-to-node="18">Ideal si se prioriza una interacción humana, educada y concisa. Es el modelo que se "siente" más inteligente en el trato, aunque carezca de la capacidad de profundidad lógica extrema del Qwen 4B para resolver paradojas temporales.</p><h4 data-path-to-node="19">❌ No Recomendado: <strong>Qwen3 VI 8B</strong></h4><p data-path-to-node="20">En esta configuración específica, no aporta valor sobre la versión de 4B. Es más lento, consumió más memoria y mostró inestabilidad algorítmica (bucles de repetición).</p><p data-path-to-node="20"> </p><div style="display: flex; justify-content: center; width: 100%; max-width: 900px; margin: 20px auto; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); border-radius: 12px; overflow: hidden; background-color: white; padding: 10px;"><script src="https://cdn.plot.ly/plotly-latest.min.js"></script><div id="chart-div" style="width: 100%; height: 600px;"></div><script type="text/javascript">// --- DATOS ---
+						var models = ['Gemma 2 9B', 'Qwen3 VI 8B', 'Qwen3 VI 4B', 'Lfm2 1.2B'];
+						var speed = [16.51, 20.80, 35.84, 75.47];
+						var accuracy = [80, 60, 80, 20];
+						var ttft = [0.50, 4.65, 2.97, 0.22];
+						var verbosity = [31, 642, 657, 121];
+						var colors = ['#6366f1', '#ef4444', '#10b981', '#f59e0b']; // Indigo, Red, Green, Amber
 
-        // Configuración de las trazas (Barras)
-        var traceSpeed = {
-            x: models, y: speed, type: 'bar', name: 'Velocidad (t/s)',
-            marker: {color: '#3b82f6'}, text: speed.map(String), textposition: 'auto', visible: true
-        };
-        
-        var traceAcc = {
-            x: models, y: accuracy, type: 'bar', name: 'Precisión (%)',
-            marker: {color: '#10b981'}, text: accuracy.map(v => v + "%"), textposition: 'auto', visible: false
-        };
+						// --- TRAZAS (Gráficos) ---
 
-        var traceTTFT = {
-            x: models, y: ttft, type: 'bar', name: 'Latencia (s)',
-            marker: {color: '#f59e0b'}, text: ttft.map(v => v + "s"), textposition: 'auto', visible: false
-        };
+						// 1. Scatter Plot (Eficiencia)
+						var traceScatter = {
+							x: speed,
+							y: accuracy,
+							mode: 'markers+text',
+							text: models,
+							textposition: "top center",
+							marker: {
+								size: [30, 30, 35, 25],
+								color: colors,
+								opacity: 0.8,
+								line: {
+									width: 2,
+									color: '#374151'
+								}
+							},
+							name: 'Eficiencia',
+							hovertemplate: "<b>%{text}</b><br>Velocidad: %{x} t/s<br>Precisión: %{y}%<extra></extra>",
+							type: 'scatter',
+							visible: true
+						};
 
-        var traceVerb = {
-            x: models, y: verbosity, type: 'bar', name: 'Verbosidad (Tokens)',
-            marker: {color: '#8b5cf6'}, text: verbosity.map(String), textposition: 'auto', visible: false
-        };
+						// 2. Barras (Velocidad)
+						var traceSpeed = {
+							x: models,
+							y: speed,
+							type: 'bar',
+							marker: {
+								color: colors
+							},
+							text: speed.map(String),
+							texttemplate: '%{text} t/s',
+							textposition: 'auto',
+							hovertemplate: "<b>%{x}</b><br>Velocidad: %{y} t/s<extra></extra>",
+							visible: false
+						};
 
-        var data = [traceSpeed, traceAcc, traceTTFT, traceVerb];
+						// 3. Barras (Precisión)
+						var traceAcc = {
+							x: models,
+							y: accuracy,
+							type: 'bar',
+							marker: {
+								color: colors
+							},
+							text: accuracy.map(v => v + "%"),
+							texttemplate: '%{text}',
+							textposition: 'auto',
+							hovertemplate: "<b>%{x}</b><br>Precisión: %{y}%<extra></extra>",
+							visible: false
+						};
 
-        // Configuración del diseño y botones
-        var layout = {
-            title: { text: 'Velocidad de Inferencia (Tokens/segundo)', x: 0.5 },
-            xaxis: { title: 'Modelo' },
-            yaxis: { title: 't/s' },
-            template: 'plotly_white',
-            updatemenus: [{
-                type: 'buttons',
-                direction: 'right',
-                x: 0.5, y: 1.2, xanchor: 'center',
-                buttons: [
-                    {
-                        label: 'Velocidad',
-                        method: 'update',
-                        args: [{'visible': [true, false, false, false]},
-                               {'title': 'Velocidad de Inferencia (Tokens/segundo)', 'yaxis': {'title': 't/s'}}]
-                    },
-                    {
-                        label: 'Precisión',
-                        method: 'update',
-                        args: [{'visible': [false, true, false, false]},
-                               {'title': 'Precisión Lógica en Acertijos (%)', 'yaxis': {'title': 'Porcentaje (%)', 'range': [0, 100]}}]
-                    },
-                    {
-                        label: 'Latencia',
-                        method: 'update',
-                        args: [{'visible': [false, false, true, false]},
-                               {'title': 'Tiempo al Primer Token (Segundos)', 'yaxis': {'title': 'Segundos'}}]
-                    },
-                    {
-                        label: 'Verbosidad',
-                        method: 'update',
-                        args: [{'visible': [false, false, false, true]},
-                               {'title': 'Verbosidad (Promedio de Tokens)', 'yaxis': {'title': 'Tokens'}}]
-                    }
-                ]
-            }]
-        };
+						// 4. Barras (Latencia)
+						var traceTTFT = {
+							x: models,
+							y: ttft,
+							type: 'bar',
+							marker: {
+								color: colors
+							},
+							text: ttft.map(v => v + "s"),
+							texttemplate: '%{text}',
+							textposition: 'auto',
+							hovertemplate: "<b>%{x}</b><br>TTFT: %{y}s<extra></extra>",
+							visible: false
+						};
 
-        Plotly.newPlot('chart-div', data, layout, {responsive: true});</script></div></div></div></div></div></div><footer class="post__inner post__footer"><p class="post__last-updated">This article was updated on diciembre 6, 2025</p><div class="post__share-tag-container"><div class="post__share"><button class="post__share-button js-post__share-button icon" aria-label="Share button"><i class="fas fa-share-alt"></i></button><div class="post__share-popup js-post__share-popup"></div></div></div><div class="post__bio"><div><h3><a href="https://RubenGarcia11.github.io/2damasi/authors/ruben-garcia/" class="invert" rel="author">Rubén García</a></h3></div></div></footer></article></main><footer id="copyright"><ul><li>© Massively</li><li>Design: <a href="https://html5up.net" target="_blank" rel="nofollow noopener">HTML5 UP</a></li><li>Powered by Publii</li></ul></footer></div><script src="https://RubenGarcia11.github.io/2damasi/assets/js/jquery.min.js?v=c9771cc3e90e18f5336eedbd0fffb2cf"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/jquery.scrollex.min.js?v=f89065e3d988006af9791b44561d7c90"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/jquery.scrolly.min.js?v=1ed5a78bde1476875a40f6b9ff44fc14"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/browser.min.js?v=c07298dd19048a8a69ad97e754dfe8d0"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/breakpoints.min.js?v=81a479eb099e3b187613943b085923b8"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/util.min.js?v=4201a626f8c9b614a663b3a1d7d82615"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/main.min.js?v=56233c354bd814758be8bff42f7e13a5"></script><script>/*<![CDATA[*/var images=document.querySelectorAll("img[loading]");for(var i=0;i<images.length;i++){if(images[i].complete){images[i].classList.add("is-loaded")}else{images[i].addEventListener("load",function(){this.classList.add("is-loaded")},false)}};/*]]>*/</script></body></html>
+						// 5. Barras (Verbosidad)
+						var traceVerb = {
+							x: models,
+							y: verbosity,
+							type: 'bar',
+							marker: {
+								color: colors
+							},
+							text: verbosity.map(String),
+							texttemplate: '%{text}',
+							textposition: 'auto',
+							hovertemplate: "<b>%{x}</b><br>Tokens: %{y}<extra></extra>",
+							visible: false
+						};
+
+						var data = [traceScatter, traceSpeed, traceAcc, traceTTFT, traceVerb];
+
+						// --- ANOTACIONES (Para el Scatter) ---
+						var annotationsScatter = [{
+								x: 35.84,
+								y: 80,
+								xref: 'x',
+								yref: 'y',
+								text: '👑 Ganador (Qwen 4B)',
+								showarrow: true,
+								arrowhead: 2,
+								ax: 0,
+								ay: -40,
+								font: {
+									color: '#10b981',
+									size: 14,
+									family: 'Arial Black'
+								}
+							},
+							{
+								x: 75.47,
+								y: 20,
+								xref: 'x',
+								yref: 'y',
+								text: '🚀 Muy rápido, poco preciso',
+								showarrow: true,
+								arrowhead: 1,
+								ax: -60,
+								ay: -30
+							},
+							{
+								x: 16.51,
+								y = 80,
+								xref: 'x',
+								yref: 'y',
+								text: '🧠 Lento pero inteligente',
+								showarrow: true,
+								arrowhead: 1,
+								ax: 60,
+								ay: -30
+							}
+						];
+
+						// --- LAYOUT ---
+						var layout = {
+							title: {
+								text: '<b>Análisis de Rendimiento IA (M4)</b>',
+								font: {
+									size: 24
+								}
+							},
+							template: 'plotly_white',
+							height: 600,
+							margin: {
+								t: 120,
+								b: 50,
+								l: 50,
+								r: 50
+							},
+							legend: {
+								orientation: "h",
+								y: -0.1
+							},
+
+							// Ejes iniciales (Scatter)
+							xaxis: {
+								title: "Velocidad (Tokens/segundo)",
+								gridcolor: "#e5e7eb"
+							},
+							yaxis: {
+								title: "Precisión Lógica (%)",
+								range: [0, 110],
+								gridcolor: "#e5e7eb"
+							},
+							annotations: annotationsScatter,
+
+							updatemenus: [{
+								type: 'buttons',
+								direction: 'left',
+								x: 0.5,
+								y: 1.15,
+								xanchor: 'center',
+								yanchor: 'top',
+								pad: {
+									r: 10,
+									t: 10
+								},
+								showactive: true,
+								bgcolor: '#f3f4f6',
+								bordercolor: '#d1d5db',
+								borderwidth: 1,
+								buttons: [{
+										label: '🗺️ Mapa Eficiencia',
+										method: 'update',
+										args: [{
+												'visible': [true, false, false, false, false]
+											},
+											{
+												'title': '<b>Mapa de Eficiencia:</b> Velocidad vs. Inteligencia',
+												'xaxis': {
+													'title': 'Velocidad (t/s)',
+													'type': 'linear'
+												},
+												'yaxis': {
+													'title': 'Precisión (%)',
+													'range': [0, 105]
+												},
+												'annotations': annotationsScatter
+											}
+										]
+									},
+									{
+										label: '⚡ Velocidad',
+										method: 'update',
+										args: [{
+												'visible': [false, true, false, false, false]
+											},
+											{
+												'title': '<b>Velocidad de Inferencia</b> (Más alto es mejor)',
+												'xaxis': {
+													'title': 'Modelo',
+													'type': 'category'
+												},
+												'yaxis': {
+													'title': 'Tokens / Segundo'
+												},
+												'annotations': []
+											}
+										]
+									},
+									{
+										label: '🎯 Precisión',
+										method: 'update',
+										args: [{
+												'visible': [false, false, true, false, false]
+											},
+											{
+												'title': '<b>Precisión Lógica</b> (Más alto es mejor)',
+												'xaxis': {
+													'title': 'Modelo',
+													'type': 'category'
+												},
+												'yaxis': {
+													'title': 'Porcentaje de Acierto (%)',
+													'range': [0, 105]
+												},
+												'annotations': []
+											}
+										]
+									},
+									{
+										label: '⏱️ Latencia',
+										method: 'update',
+										args: [{
+												'visible': [false, false, false, true, false]
+											},
+											{
+												'title': '<b>Tiempo al Primer Token</b> (Más bajo es mejor)',
+												'xaxis': {
+													'title': 'Modelo',
+													'type': 'category'
+												},
+												'yaxis': {
+													'title': 'Segundos (s)'
+												},
+												'annotations': []
+											}
+										]
+									},
+									{
+										label: '💬 Verbosidad',
+										method: 'update',
+										args: [{
+												'visible': [false, false, false, false, true]
+											},
+											{
+												'title': '<b>Verbosidad</b> (Tokens por respuesta)',
+												'xaxis': {
+													'title': 'Modelo',
+													'type': 'category'
+												},
+												'yaxis': {
+													'title': 'Cantidad de Tokens'
+												},
+												'annotations': []
+											}
+										]
+									}
+								]
+							}]
+						};
+
+						Plotly.newPlot('chart-div', data, layout, {
+							responsive: true
+						});</script></div></div></div></div></div></div><footer class="post__inner post__footer"><p class="post__last-updated">This article was updated on diciembre 6, 2025</p><div class="post__share-tag-container"><div class="post__share"><button class="post__share-button js-post__share-button icon" aria-label="Share button"><i class="fas fa-share-alt"></i></button><div class="post__share-popup js-post__share-popup"></div></div></div><div class="post__bio"><div><h3><a href="https://RubenGarcia11.github.io/2damasi/authors/ruben-garcia/" class="invert" rel="author">Rubén García</a></h3></div></div></footer></article></main><footer id="copyright"><ul><li>© Massively</li><li>Design: <a href="https://html5up.net" target="_blank" rel="nofollow noopener">HTML5 UP</a></li><li>Powered by Publii</li></ul></footer></div><script src="https://RubenGarcia11.github.io/2damasi/assets/js/jquery.min.js?v=c9771cc3e90e18f5336eedbd0fffb2cf"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/jquery.scrollex.min.js?v=f89065e3d988006af9791b44561d7c90"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/jquery.scrolly.min.js?v=1ed5a78bde1476875a40f6b9ff44fc14"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/browser.min.js?v=c07298dd19048a8a69ad97e754dfe8d0"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/breakpoints.min.js?v=81a479eb099e3b187613943b085923b8"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/util.min.js?v=4201a626f8c9b614a663b3a1d7d82615"></script><script src="https://RubenGarcia11.github.io/2damasi/assets/js/main.min.js?v=56233c354bd814758be8bff42f7e13a5"></script><script>/*<![CDATA[*/var images=document.querySelectorAll("img[loading]");for(var i=0;i<images.length;i++){if(images[i].complete){images[i].classList.add("is-loaded")}else{images[i].addEventListener("load",function(){this.classList.add("is-loaded")},false)}};/*]]>*/</script></body></html>
