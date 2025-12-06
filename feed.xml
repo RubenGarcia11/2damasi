@@ -3,12 +3,393 @@
     <title>Ampliación de Sistemas Informáticos</title>
     <link href="https://RubenGarcia11.github.io/2damasi/feed.xml" rel="self" />
     <link href="https://RubenGarcia11.github.io/2damasi" />
-    <updated>2025-11-25T14:04:35+01:00</updated>
+    <updated>2025-12-06T22:29:40+01:00</updated>
     <author>
         <name>Rubén García</name>
     </author>
     <id>https://RubenGarcia11.github.io/2damasi</id>
 
+    <entry>
+        <title>Comparativa de IAs en local</title>
+        <author>
+            <name>Rubén García</name>
+        </author>
+        <link href="https://RubenGarcia11.github.io/2damasi/comparativa-de-ias-en-local.html"/>
+        <id>https://RubenGarcia11.github.io/2damasi/comparativa-de-ias-en-local.html</id>
+
+        <updated>2025-12-06T17:38:56+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Introducción: Esta documentación recoge los resultados de las pruebas de rendimiento (benchmarking) realizadas sobre distintos modelos de lenguaje ejecutados localmente. El entorno de&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h1>Introducción:</h1>
+<p>Esta documentación recoge los resultados de las pruebas de rendimiento (<i>benchmarking</i>) realizadas sobre distintos modelos de lenguaje ejecutados localmente. El entorno de pruebas consiste en un Mac mini equipado con el procesador M4 y 16 GB de memoria unificada, hardware que define el nuevo estándar de eficiencia en el borde. El estudio se estructura en dos dimensiones críticas: un análisis cuantitativo, enfocado en la latencia y el caudal de datos mediante la medición de Tokens por Segundo (TPS), Tiempo al Primer Token (TTFT) y Tokens Totales; y una validación cualitativa, centrada en la capacidad de razonamiento lógico. Para esta última, se somete a los modelos a una batería de acertijos, seleccionados específicamente por representar uno de los desafíos más complejos para la desambiguación semántica y el pensamiento lateral en la inteligencia artificial actual.</p>
+<h1>Elección de modelos:</h1>
+<p>Para la fase experimental, se ha seleccionado un conjunto heterogéneo de modelos que abarca desde arquitecturas ultra ligeras (<i>Small Language Models</i>) hasta modelos de tamaño medio, todos ellos compatibles con el presupuesto de memoria unificada de 16 GB del equipo. La selección incluye la familia <strong>Qwen3 VI</strong> en sus variantes de <strong>8B y 4B</strong>, lo que permitirá analizar el escalado de rendimiento y razonamiento dentro de una misma arquitectura base. Se incorpora el <strong>Lfm2 de 1,2B </strong>con el objetivo de establecer una línea base de latencia mínima y eficiencia extrema, y finalmente, el <strong>Gemma2-2-9b</strong>, que con su mayor densidad de parámetros servirá para evaluar el compromiso entre el consumo de recursos y la capacidad de resolución de problemas complejos (acertijos) frente a sus contrapartes más ligeras.</p>
+<h3 data-path-to-node="1">Descripción de los Retos Cualitativos (Acertijos)</h3>
+<p data-path-to-node="1,0">La evaluación cualitativa se basa en una batería de cinco acertijos, cada uno seleccionado para evaluar una competencia cognitiva específica:</p>
+<ul data-path-to-node="1,1">
+<li>
+<p data-path-to-node="1,1,0,0"><strong>Atención al contexto (<i>El padre de Juan</i>):</strong> Evalúa si el modelo es capaz de retener y priorizar la premisa lógica inicial ("el padre de Juan") en lugar de caer en una autocompletación estadística simple continuando la lista de nombres.</p>
+</li>
+<li>
+<p data-path-to-node="1,1,1,0"><strong>Abstracción física (<i>El agujero</i>):</strong> Pone a prueba la comprensión de conceptos definidos por la sustracción o ausencia de materia, desafiando la lógica física convencional donde "quitar" suele implicar "reducir".</p>
+</li>
+<li>
+<p data-path-to-node="1,1,2,0"><strong>Relaciones de propiedad (<i>El nombre</i>):</strong> Analiza la capacidad del modelo para procesar paradojas de posesión, distinguiendo entre la propiedad de un atributo abstracto y la frecuencia de su uso por agentes externos.</p>
+</li>
+<li>
+<p data-path-to-node="1,1,3,0"><strong>Simbolismo vs. Realidad (<i>El mapa</i>):</strong> Examina la desambiguación semántica, obligando a la IA a diferenciar entre las características físicas de los objetos geográficos (montañas, agua) y sus representaciones gráficas o simbólicas.</p>
+</li>
+<li>
+<p data-path-to-node="1,1,4,0"><strong>Lógica temporal y secuencial (<i>La edad de Juan</i>):</strong> Representa el desafío de mayor complejidad (<i>Edge Case</i>). Requiere que el modelo realice inferencias sobre el paso del tiempo y el funcionamiento del calendario (cambio de año) para resolver una aparente inconsistencia aritmética en la secuencia de edades.</p>
+</li>
+</ul>
+<h1>Análisis individual</h1>
+<p>Vamos a realizar un análisis sobre cada modelo y para poder evaluar y comparar posteriormente.</p>
+<h3 data-path-to-node="3">1. Liquid Lfm2 1.2B: Velocidad Extrema vs. Coherencia Lógica</h3>
+<p data-path-to-node="4">Este modelo destaca por ser una arquitectura experimental ligera ("Liquid"), diseñada para velocidad pura.</p>
+<ul data-path-to-node="5">
+<li>
+<p data-path-to-node="5,0,0"><strong>Análisis Cuantitativo:</strong></p>
+<ul data-path-to-node="5,0,1">
+<li>
+<p data-path-to-node="5,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Es, con diferencia, el más rápido, manteniendo un promedio sostenido de <strong>~75 tokens/segundo</strong>.</p>
+</li>
+<li>
+<p data-path-to-node="5,0,1,1,0"><strong>Latencia (TTFT):</strong> Respuesta casi instantánea (~0.2s), ideal para interacciones en tiempo real.</p>
+</li>
+<li>
+<p data-path-to-node="5,0,1,2,0"><strong>Consumo:</strong> Genera respuestas breves (promedio &lt;150 tokens), lo que ahorra ancho de banda de memoria.</p>
+</li>
+</ul>
+</li>
+<li>
+<p data-path-to-node="5,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p>
+<ul data-path-to-node="5,1,1">
+<li>
+<p data-path-to-node="5,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Muy bajo (20% de acierto)</strong>.</p>
+</li>
+<li>
+<p data-path-to-node="5,1,1,1,0"><strong>Fallos Críticos:</strong> Demostró una incapacidad severa para retener el contexto lógico inmediato. En el primer acertijo (<i>El padre de Juan</i>), a pesar de tener los nombres en la premisa, respondió "Ana", cayendo en la trampa estadística de completar la lista en lugar de usar la lógica.</p>
+</li>
+<li>
+<p data-path-to-node="5,1,1,2,0"><strong>Alucinaciones:</strong> En los acertijos abstractos (<i>Agujero, Nombre</i>), respondió con objetos tangibles ("Libro", "Vaso") o conceptos erróneos ("Conocimiento"), mostrando falta de capacidad de abstracción.</p>
+</li>
+</ul>
+</li>
+<li>
+<p data-path-to-node="5,2,0"><strong>Veredicto Técnico:</strong> Modelo inviable para tareas de razonamiento lógico o "Chain of Thought". Su uso queda restringido a tareas de clasificación simple o autocompletado de código muy básico donde la velocidad es la única prioridad.</p>
+</li>
+</ul>
+<hr data-path-to-node="6">
+<h3 data-path-to-node="7">2. Google Gemma 2 9B: El Estándar de Eficiencia Semántica</h3>
+<p data-path-to-node="8">A pesar de ser el modelo más pesado del grupo (9B parámetros), mostró el comportamiento más "humano" y directo.</p>
+<ul data-path-to-node="9">
+<li>
+<p data-path-to-node="9,0,0"><strong>Análisis Cuantitativo:</strong></p>
+<ul data-path-to-node="9,0,1">
+<li>
+<p data-path-to-node="9,0,1,0,0"><strong>Velocidad de Inferencia:</strong> El más lento del grupo (<strong>~16.5 t/s</strong>), esperable dado su tamaño y el ancho de banda de memoria del M4.</p>
+</li>
+<li>
+<p data-path-to-node="9,0,1,1,0"><strong>Eficiencia de Tokens:</strong> Extremadamente alta. Es el modelo más conciso. Para resolver acertijos donde otros usaron 500 tokens, Gemma usó <strong>entre 25 y 40 tokens</strong>. Esto compensa su baja velocidad de generación, entregando la respuesta completa al usuario muy rápido.</p>
+</li>
+</ul>
+</li>
+<li>
+<p data-path-to-node="9,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p>
+<ul data-path-to-node="9,1,1">
+<li>
+<p data-path-to-node="9,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Alto (80% de acierto)</strong>.</p>
+</li>
+<li>
+<p data-path-to-node="9,1,1,1,0"><strong>Estilo de Respuesta:</strong> Directo al grano. No divaga.</p>
+</li>
+<li>
+<p data-path-to-node="9,1,1,2,0"><strong>El Fallo:</strong> No logró resolver el <i>Edge Case</i> temporal (Acertijo 5: "La edad de Juan"). Aunque intentó razonarlo, se confundió con la aritmética de las fechas y dio una explicación genérica sobre "cumplir años hoy", sin resolver la paradoja del cambio de año (31 de diciembre).</p>
+</li>
+</ul>
+</li>
+<li>
+<p data-path-to-node="9,2,0"><strong>Veredicto Técnico:</strong> La mejor opción para asistentes de chat generales donde se valore la precisión y la concisión sobre la velocidad de generación bruta.</p>
+</li>
+</ul>
+<hr data-path-to-node="10">
+<h3 data-path-to-node="11">3. Qwen3 VI 4B: El Equilibrio (Sweet Spot)</h3>
+<p data-path-to-node="12">La versión pequeña de Qwen sorprendió gratamente, superando a su hermano mayor en velocidad y manteniendo un nivel de razonamiento similar.</p>
+<ul data-path-to-node="13">
+<li>
+<p data-path-to-node="13,0,0"><strong>Análisis Cuantitativo:</strong></p>
+<ul data-path-to-node="13,0,1">
+<li>
+<p data-path-to-node="13,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Muy sólida (<strong>~35 t/s</strong>), duplicando la velocidad de Gemma 9B.</p>
+</li>
+<li>
+<p data-path-to-node="13,0,1,1,0"><strong>Verbosidad:</strong> Alta. Tiende a realizar un "pensamiento en voz alta" (<i>Chain of Thought</i> implícito), generando cientos de tokens (500+) para explicar una respuesta que Gemma da en 30.</p>
+</li>
+</ul>
+</li>
+<li>
+<p data-path-to-node="13,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p>
+<ul data-path-to-node="13,1,1">
+<li>
+<p data-path-to-node="13,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Alto (80% de acierto)</strong>.</p>
+</li>
+<li>
+<p data-path-to-node="13,1,1,1,0"><strong>Hito Destacado:</strong> Fue capaz de resolver el acertijo más difícil (Acertijo 5), deduciendo correctamente la lógica del "31 de diciembre" tras un largo razonamiento.</p>
+</li>
+<li>
+<p data-path-to-node="13,1,1,2,0"><strong>El Fallo:</strong> Se confundió en el acertijo del "Agujero" (Acertijo 2), entrando en un bucle extraño donde propuso "El agua" y "La letra A" de forma errática.</p>
+</li>
+</ul>
+</li>
+<li>
+<p data-path-to-node="13,2,0"><strong>Veredicto Técnico:</strong> Probablemente la mejor opción equilibrada para el Mac mini M4. Ofrece razonamiento complejo a una velocidad muy fluida, aunque requiere <i>prompts</i> de sistema que limiten su tendencia a hablar demasiado ("verbosidad").</p>
+</li>
+</ul>
+<hr data-path-to-node="14">
+<h3 data-path-to-node="15">4. Qwen3 VI 8B: Razonamiento Excesivo (Overthinking)</h3>
+<p data-path-to-node="16">Este modelo mostró un comportamiento de "sobre-análisis", lo que penalizó su rendimiento general sin aportar una ventaja clara sobre la versión de 4B en estas pruebas específicas.</p>
+<ul data-path-to-node="17">
+<li>
+<p data-path-to-node="17,0,0"><strong>Análisis Cuantitativo:</strong></p>
+<ul data-path-to-node="17,0,1">
+<li>
+<p data-path-to-node="17,0,1,0,0"><strong>Velocidad de Inferencia:</strong> Moderada (<strong>~20 t/s</strong>), ligeramente superior a Gemma pero lejos del 4B.</p>
+</li>
+<li>
+<p data-path-to-node="17,0,1,1,0"><strong>Latencia Acumulada:</strong> Muy alta debido a su extrema verbosidad. En el último acertijo generó <strong>1604 tokens</strong>, tardando más de 9 segundos en finalizar la respuesta.</p>
+</li>
+</ul>
+</li>
+<li>
+<p data-path-to-node="17,1,0"><strong>Análisis Cualitativo (Razonamiento):</strong></p>
+<ul data-path-to-node="17,1,1">
+<li>
+<p data-path-to-node="17,1,1,0,0"><strong>Rendimiento en Acertijos:</strong> <strong>Medio-Alto (60-80% variable)</strong>.</p>
+</li>
+<li>
+<p data-path-to-node="17,1,1,1,0"><strong>Comportamiento de Bucle:</strong> En el último acertijo, aunque llegó a la conclusión correcta (31 de diciembre), entró en un bucle de repetición de argumentos (<i>"¡No! ¡No! ¡No!"</i>) visible en los logs. Esto sugiere una inestabilidad en la penalización por repetición o una temperatura (0.7) demasiado alta para su ventana de contexto lógica.</p>
+</li>
+<li>
+<p data-path-to-node="17,1,1,2,0"><strong>Alucinación:</strong> Falló en el acertijo del "Agujero", obsesionándose con "La letra A" de una forma mucho más obstinada que la versión de 4B.</p>
+</li>
+</ul>
+</li>
+<li>
+<p data-path-to-node="17,2,0"><strong>Veredicto Técnico:</strong> Menos eficiente que la versión de 4B para esta configuración. Su tendencia a divagar consume recursos innecesarios y tiempo de usuario, sin ofrecer una precisión superior en esta batería de pruebas.</p>
+</li>
+</ul>
+<h1>Comparativa de modelos:</h1>
+<p data-path-to-node="3">Tras evaluar individualmente los cuatro modelos seleccionados, este análisis cruzado busca identificar el compromiso ideal (<i>trade-off</i>) entre velocidad de inferencia, capacidad de razonamiento y experiencia de usuario.</p>
+<h3 data-path-to-node="4">1. La Frontera de Eficiencia: Velocidad vs. Inteligencia</h3>
+<p data-path-to-node="5">Existe una correlación inversa casi perfecta entre la velocidad de generación y la capacidad lógica.</p>
+<ul data-path-to-node="6">
+<li>
+<p data-path-to-node="6,0,0"><strong>El extremo de la velocidad (Lfm2 1.2B):</strong> Con <strong>~75 t/s</strong>, este modelo satura la capacidad de procesamiento del chip M4, ofreciendo una latencia imperceptible. Sin embargo, su <strong>tasa de acierto del 20%</strong> en pruebas lógicas lo descalifica para tareas complejas. Actúa más como un autocompletar predictivo que como un asistente de razonamiento.</p>
+</li>
+<li>
+<p data-path-to-node="6,1,0"><strong>El "Punto Dulce" (Qwen3 VI 4B):</strong> Se posiciona como el equilibrio ideal. Con <strong>~35 t/s</strong>, es lo suficientemente rápido para sentirse fluido (superando la velocidad de lectura humana), y sorprendentemente, fue el único capaz de resolver el acertijo más complejo (<i>lógica temporal</i>), superando incluso a modelos con el doble de parámetros.</p>
+</li>
+<li>
+<p data-path-to-node="6,2,0"><strong>El coste de la densidad (Gemma 2 9B y Qwen 8B):</strong> Al subir a tamaños de 8B/9B, la velocidad cae a la franja de <strong>16-20 t/s</strong>. Si bien sigue siendo utilizable, la mejora en razonamiento no siempre justifica la caída del 50% en velocidad, especialmente en el caso de Qwen 8B, que mostró inestabilidad.</p>
+</li>
+</ul>
+<h3 data-path-to-node="7">2. Estilo de Respuesta: Concisión vs. Verbosidad (Chain of Thought)</h3>
+<p data-path-to-node="8">Uno de los hallazgos más notables del estudio es la diferencia en la "personalidad" de los modelos, lo que afecta directamente a la experiencia de usuario y al consumo de memoria.</p>
+<div class="horizontal-scroll-wrapper">
+<div class="table-block-component">
+<div class="table-block has-export-button">
+<div class="table-content not-end-of-paragraph" data-hveid="0" data-ved="0CAAQ3ecQahgKEwjWkqX1sKmRAxUAAAAAHQAAAAAQmgY">
+<table data-path-to-node="9">
+<thead>
+<tr>
+<td><span data-path-to-node="9,0,0,0">Característica</span></td>
+<td><span data-path-to-node="9,0,1,0">Gemma 2 9B</span></td>
+<td><span data-path-to-node="9,0,2,0">Qwen3 VI (4B y 8B)</span></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span data-path-to-node="9,1,0,0"><strong>Enfoque</strong></span></td>
+<td><span data-path-to-node="9,1,1,0"><strong>Resultado Final</strong></span></td>
+<td><span data-path-to-node="9,1,2,0"><strong>Razonamiento (CoT)</strong></span></td>
+</tr>
+<tr>
+<td><span data-path-to-node="9,2,0,0"><strong>Promedio Tokens</strong></span></td>
+<td><span data-path-to-node="9,2,1,0">~30 tokens por respuesta</span></td>
+<td><span data-path-to-node="9,2,2,0">&gt;500 tokens por respuesta</span></td>
+</tr>
+<tr>
+<td><span data-path-to-node="9,3,0,0"><strong>Experiencia</strong></span></td>
+<td><span data-path-to-node="9,3,1,0">Directa, estilo asistente de voz.</span></td>
+<td><span data-path-to-node="9,3,2,0">Divagante, estilo profesor explicando.</span></td>
+</tr>
+<tr>
+<td><span data-path-to-node="9,4,0,0"><strong>Ventaja</strong></span></td>
+<td><span data-path-to-node="9,4,1,0">Menor tiempo de lectura para el usuario.</span></td>
+<td><span data-path-to-node="9,4,2,0">Mayor probabilidad de acierto en lógica compleja al "pensar en voz alta".</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote data-path-to-node="10">
+<p data-path-to-node="10,0"><strong>Observación Crítica:</strong> Aunque <strong>Gemma 2</strong> es más lento generando cada token, a menudo entrega la respuesta completa <strong>antes</strong> que Qwen, simplemente porque tiene que generar mucho menos texto. Qwen tiende a entrar en bucles de validación (<i>"¡No! ¡Espera! ¡Correcto!"</i>) que consumen tiempo y recursos inútilmente, como se vio en el log del modelo de 8B.</p>
+</blockquote>
+<h3 data-path-to-node="11">3. Fiabilidad y Alucinaciones</h3>
+<ul data-path-to-node="12">
+<li>
+<p data-path-to-node="12,0,0"><strong>Estabilidad:</strong> <strong>Gemma 2 9B</strong> demostró ser el modelo más estable. Aunque falló el último acertijo, su error fue coherente y gramaticalmente perfecto.</p>
+</li>
+<li>
+<p data-path-to-node="12,1,0"><strong>Inestabilidad en Modelos Medios:</strong> <strong>Qwen3 VI 8B</strong> mostró el comportamiento más preocupante. A pesar de tener más parámetros que la versión 4B, sufrió de "colapso de contexto" en el último acertijo, repitiendo la frase <i>"¡No! ¡No! ¡No!"</i> múltiples veces. Esto sugiere que la cuantización o la configuración de temperatura (0.7) afecta más negativamente al modelo de 8B en este hardware que al de 4B.</p>
+</li>
+</ul>
+<h3 data-path-to-node="13">Veredicto Final: ¿Cuál es el mejor modelo para el M4?</h3>
+<p data-path-to-node="14">Basándonos en la evidencia empírica de este banco de pruebas:</p>
+<h4 data-path-to-node="15">🏆 Ganador Global: <strong>Qwen3 VI 4B</strong></h4>
+<p data-path-to-node="16">Es el modelo que mejor aprovecha el hardware. Ofrece una velocidad excelente (<strong>35 t/s</strong>) y fue el <strong>único capaz de resolver el 100% de los acertijos lógicos</strong>, incluyendo el desafío de fechas. Su única desventaja es su verbosidad, que puede mitigarse con instrucciones de sistema (<i>system prompt</i>) pidiendo brevedad.</p>
+<h4 data-path-to-node="17">🥈 Mención Honorífica (Mejor Asistente): <strong>Gemma 2 9B</strong></h4>
+<p data-path-to-node="18">Ideal si se prioriza una interacción humana, educada y concisa. Es el modelo que se "siente" más inteligente en el trato, aunque carezca de la capacidad de profundidad lógica extrema del Qwen 4B para resolver paradojas temporales.</p>
+<h4 data-path-to-node="19">❌ No Recomendado: <strong>Qwen3 VI 8B</strong></h4>
+<p data-path-to-node="20">En esta configuración específica, no aporta valor sobre la versión de 4B. Es más lento, consumió más memoria y mostró inestabilidad algorítmica (bucles de repetición).</p>
+<p data-path-to-node="20"> </p>
+<div style="display: flex; justify-content: center; width: 100%; max-width: 900px; margin: 0 auto;">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="chart-div" style="width: 100%; height: 550px;"></div>
+<script type="text/javascript">
+        var models = ["Gemma 2 9B", "Qwen3 VI 8B", "Qwen3 VI 4B", "Lfm2 1.2B"];
+        
+        // Datos extraídos del análisis
+        var speed = [16.51, 20.8, 35.84, 75.47];
+        var accuracy = [80, 60, 80, 20];
+        var ttft = [0.5, 4.65, 2.97, 0.22];
+        var verbosity = [31, 642, 657, 121];
+
+        // Configuración de las trazas (Barras)
+        var traceSpeed = {
+            x: models, y: speed, type: 'bar', name: 'Velocidad (t/s)',
+            marker: {color: '#3b82f6'}, text: speed.map(String), textposition: 'auto', visible: true
+        };
+        
+        var traceAcc = {
+            x: models, y: accuracy, type: 'bar', name: 'Precisión (%)',
+            marker: {color: '#10b981'}, text: accuracy.map(v => v + "%"), textposition: 'auto', visible: false
+        };
+
+        var traceTTFT = {
+            x: models, y: ttft, type: 'bar', name: 'Latencia (s)',
+            marker: {color: '#f59e0b'}, text: ttft.map(v => v + "s"), textposition: 'auto', visible: false
+        };
+
+        var traceVerb = {
+            x: models, y: verbosity, type: 'bar', name: 'Verbosidad (Tokens)',
+            marker: {color: '#8b5cf6'}, text: verbosity.map(String), textposition: 'auto', visible: false
+        };
+
+        var data = [traceSpeed, traceAcc, traceTTFT, traceVerb];
+
+        // Configuración del diseño y botones
+        var layout = {
+            title: { text: 'Velocidad de Inferencia (Tokens/segundo)', x: 0.5 },
+            xaxis: { title: 'Modelo' },
+            yaxis: { title: 't/s' },
+            template: 'plotly_white',
+            updatemenus: [{
+                type: 'buttons',
+                direction: 'right',
+                x: 0.5, y: 1.2, xanchor: 'center',
+                buttons: [
+                    {
+                        label: 'Velocidad',
+                        method: 'update',
+                        args: [{'visible': [true, false, false, false]},
+                               {'title': 'Velocidad de Inferencia (Tokens/segundo)', 'yaxis': {'title': 't/s'}}]
+                    },
+                    {
+                        label: 'Precisión',
+                        method: 'update',
+                        args: [{'visible': [false, true, false, false]},
+                               {'title': 'Precisión Lógica en Acertijos (%)', 'yaxis': {'title': 'Porcentaje (%)', 'range': [0, 100]}}]
+                    },
+                    {
+                        label: 'Latencia',
+                        method: 'update',
+                        args: [{'visible': [false, false, true, false]},
+                               {'title': 'Tiempo al Primer Token (Segundos)', 'yaxis': {'title': 'Segundos'}}]
+                    },
+                    {
+                        label: 'Verbosidad',
+                        method: 'update',
+                        args: [{'visible': [false, false, false, true]},
+                               {'title': 'Verbosidad (Promedio de Tokens)', 'yaxis': {'title': 'Tokens'}}]
+                    }
+                ]
+            }]
+        };
+
+        Plotly.newPlot('chart-div', data, layout, {responsive: true});
+    </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Configuración Inicial Jetson Nano</title>
+        <author>
+            <name>Rubén García</name>
+        </author>
+        <link href="https://RubenGarcia11.github.io/2damasi/configuracion-inicial-jetson-nano.html"/>
+        <id>https://RubenGarcia11.github.io/2damasi/configuracion-inicial-jetson-nano.html</id>
+
+        <updated>2025-11-25T15:54:47+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Introducción: El componente especializado en Inteligencia Artificial de nuestra arquitectura es la Nvidia Jetson Orin Nano. Este dispositivo representa el estado del arte&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h1>Introducción:</h1>
+<p>El componente especializado en Inteligencia Artificial de nuestra arquitectura es la <strong>Nvidia Jetson Orin Nano</strong>. Este dispositivo representa el estado del arte en computación en el borde (<i>Edge Computing</i>), integrando la arquitectura GPU <strong>Nvidia Ampere</strong> en un formato embebido de bajo consumo. Su inclusión en el clúster tiene como objetivo principal la descarga de tareas de paralelización masiva, específicamente aquellas relacionadas con la inferencia de redes neuronales profundas (Deep Learning) y visión por computador. A través de este nodo, el sistema adquiere capacidad de procesamiento tensorial nativo, utilizando el ecosistema de librerías CUDA y TensorRT para ejecutar modelos complejos con una latencia mínima, sin depender de servicios en la nube.</p>
+<h1>Unboxing:</h1>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1573.jpg" alt="" width="3024" height="4032" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1573-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1573-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1573-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1573-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1573-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1573-2xl.jpg 1600w"></figure>Vamos a necesitar un cable con enchufe europeo ya que con la jetson nano solamente vienen cables de Reino unido y de Estados unidos.</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1574.jpg" alt="" width="3024" height="4032" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1574-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1574-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1574-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1574-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1574-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1574-2xl.jpg 1600w"></figure>Conectamos el display port a nuestro monitor</p>
+<h1>Configuración Inicial:</h1>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1577.jpg" alt="" width="5712" height="4284" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1577-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1577-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1577-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1577-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1577-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1577-2xl.jpg 1600w"></figure>
+<p>Al instalar la micro sd proporcionada por el profesor, podemos observar el panel de instalación de ubuntu, sin embargo lo primero que aparece son las licencias de NVIDIA ya que este SO viene preparado y optimizado para usar en las jetson.</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1578.jpg" alt="" width="4032" height="3024" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1578-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1578-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1578-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1578-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1578-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1578-2xl.jpg 1600w"></figure>Seleccionamos el idioma del sistema</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1582-2.jpg" alt="" width="4032" height="3024" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1582-2-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1582-2-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1582-2-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1582-2-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1582-2-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1582-2-2xl.jpg 1600w"></figure>Establecemos el usuario, la contraseña y el nombre del equipo</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1584.jpg" alt="" width="5712" height="4284" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1584-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1584-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1584-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1584-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1584-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1584-2xl.jpg 1600w"></figure>Seleccionamos que instale chromium web browser</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1585-0.jpg" alt="" width="5712" height="4284" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1585-0-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1585-0-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1585-0-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1585-0-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1585-0-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1585-0-2xl.jpg 1600w"></figure>Instala chromium y los paquetes necesarios para instalar las aplicaciones como snap</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1587.jpg" alt="" width="5712" height="4284" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1587-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1587-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1587-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1587-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1587-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1587-2xl.jpg 1600w"></figure>Al finalizar la instalación este es el escritorio que viene con las herramientas de nvidia preinstalada</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1588.jpg" alt="" width="5712" height="4284" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1588-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1588-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1588-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1588-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1588-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1588-2xl.jpg 1600w"></figure>Por ultimo, instalamos las actualizaciones del sistema</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/IMG_1590.jpg" alt="" width="5712" height="4284" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1590-xs.jpg 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1590-sm.jpg 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1590-md.jpg 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1590-lg.jpg 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1590-xl.jpg 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/IMG_1590-2xl.jpg 1600w"></figure>
+<h1>Ollama:</h1>
+<p>En primer lugar instalamos ollama con el script de instalación que aparece en su página web</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/Screenshot-from-2025-12-05-19-53-51.png" alt="" width="1920" height="1080" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-53-51-xs.png 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-53-51-sm.png 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-53-51-md.png 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-53-51-lg.png 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-53-51-xl.png 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-53-51-2xl.png 1600w"></figure>
+<p>En segundo lugar usamos ollama para lanzar el modelo ministral de 3 billones de parametros, ollama detecta que no lo tenemos en local y comienza a descargarlo.</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/Screenshot-from-2025-12-05-19-57-19.png" alt="" width="1920" height="1080" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-57-19-xs.png 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-57-19-sm.png 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-57-19-md.png 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-57-19-lg.png 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-57-19-xl.png 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-19-57-19-2xl.png 1600w"></figure>
+<p>Posteriormente, al finalizar la descarga, lanza un error indicando que no puede cargar el modelo ya que no hay espacio suficiente, limpiamos la cache. Sin embargo posteriormente comprobamos que ese modelo en concreto aun siendo pequeño ocupaba más memoria de la que disponemos.</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/Screenshot-from-2025-12-05-20-10-21.png" alt="" width="1920" height="1080" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-10-21-xs.png 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-10-21-sm.png 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-10-21-md.png 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-10-21-lg.png 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-10-21-xl.png 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-10-21-2xl.png 1600w"></figure>
+<p>Con esto concluiríamos con la instalación de ollama.</p>
+<h1><a href="https://github.com/rbonghi/jetson_stats">Jtop</a></h1>
+<p>Para monitorear los recursos que utilizamos, vamos a utilizar la herramienta jtop, que es un monitor de recursos derivado de TOP de linux, sin embargo esta herramienta esta hecha para que funcione con las jetsons.</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/Screenshot-from-2025-12-05-20-42-05.png" alt="" width="786" height="533" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-42-05-xs.png 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-42-05-sm.png 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-42-05-md.png 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-42-05-lg.png 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-42-05-xl.png 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-42-05-2xl.png 1600w"></figure>
+<p>Para llevar a cabo las pruebas de rendimiento correremos el modelo qwen2.5 de 3 billones de parametros y le pediremos que nos cuente un cuento para tener suficiente tiempo para obserbar los consumos, temperaturas y % de uso de la gpu.</p>
+<figure class="post__image"><img loading="lazy"  src="https://RubenGarcia11.github.io/2damasi/media/posts/5/Screenshot-from-2025-12-05-20-47-54.png" alt="" width="1920" height="1080" sizes="(max-width: 48em) 100vw, 768px" srcset="https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-47-54-xs.png 300w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-47-54-sm.png 480w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-47-54-md.png 768w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-47-54-lg.png 1024w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-47-54-xl.png 1360w ,https://RubenGarcia11.github.io/2damasi/media/posts/5/responsive/Screenshot-from-2025-12-05-20-47-54-2xl.png 1600w"></figure>
+<p>Podemos observar que el uso de la gpu es de casi el 100%, la temperatura ha ascendido de 47º a 53.3º y el consumo eléctrico ha subido de 5.3W a 16W.</p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Configuración Inicial Mac Mini</title>
         <author>
