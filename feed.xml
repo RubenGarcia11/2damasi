@@ -3,7 +3,7 @@
     <title>Ampliación de Sistemas Informáticos</title>
     <link href="https://RubenGarcia11.github.io/2damasi/feed.xml" rel="self" />
     <link href="https://RubenGarcia11.github.io/2damasi" />
-    <updated>2025-12-06T22:52:25+01:00</updated>
+    <updated>2025-12-06T22:56:14+01:00</updated>
     <author>
         <name>Rubén García</name>
     </author>
@@ -278,298 +278,82 @@
 <h4 data-path-to-node="19">❌ No Recomendado: <strong>Qwen3 VI 8B</strong></h4>
 <p data-path-to-node="20">En esta configuración específica, no aporta valor sobre la versión de 4B. Es más lento, consumió más memoria y mostró inestabilidad algorítmica (bucles de repetición).</p>
 <p data-path-to-node="20"> </p>
-<div style="display: flex; justify-content: center; width: 100%; max-width: 900px; margin: 20px auto; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); border-radius: 12px; overflow: hidden; background-color: white; padding: 10px;">
+<div style="display: flex; justify-content: center; width: 100%; max-width: 900px; margin: 0 auto;">
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<div id="chart-div" style="width: 100%; height: 600px;"></div>
+<div id="chart-div" style="width: 100%; height: 550px;"></div>
 <script type="text/javascript">
-						// --- DATOS ---
-						var models = ['Gemma 2 9B', 'Qwen3 VI 8B', 'Qwen3 VI 4B', 'Lfm2 1.2B'];
-						var speed = [16.51, 20.80, 35.84, 75.47];
-						var accuracy = [80, 60, 80, 20];
-						var ttft = [0.50, 4.65, 2.97, 0.22];
-						var verbosity = [31, 642, 657, 121];
-						var colors = ['#6366f1', '#ef4444', '#10b981', '#f59e0b']; // Indigo, Red, Green, Amber
+        var models = ["Gemma 2 9B", "Qwen3 VI 8B", "Qwen3 VI 4B", "Lfm2 1.2B"];
+        
+        // Datos extraídos del análisis
+        var speed = [16.51, 20.8, 35.84, 75.47];
+        var accuracy = [80, 60, 80, 20];
+        var ttft = [0.5, 4.65, 2.97, 0.22];
+        var verbosity = [31, 642, 657, 121];
 
-						// --- TRAZAS (Gráficos) ---
+        // Configuración de las trazas (Barras)
+        var traceSpeed = {
+            x: models, y: speed, type: 'bar', name: 'Velocidad (t/s)',
+            marker: {color: '#3b82f6'}, text: speed.map(String), textposition: 'auto', visible: true
+        };
+        
+        var traceAcc = {
+            x: models, y: accuracy, type: 'bar', name: 'Precisión (%)',
+            marker: {color: '#10b981'}, text: accuracy.map(v => v + "%"), textposition: 'auto', visible: false
+        };
 
-						// 1. Scatter Plot (Eficiencia)
-						var traceScatter = {
-							x: speed,
-							y: accuracy,
-							mode: 'markers+text',
-							text: models,
-							textposition: "top center",
-							marker: {
-								size: [30, 30, 35, 25],
-								color: colors,
-								opacity: 0.8,
-								line: {
-									width: 2,
-									color: '#374151'
-								}
-							},
-							name: 'Eficiencia',
-							hovertemplate: "<b>%{text}</b><br>Velocidad: %{x} t/s<br>Precisión: %{y}%<extra></extra>",
-							type: 'scatter',
-							visible: true
-						};
+        var traceTTFT = {
+            x: models, y: ttft, type: 'bar', name: 'Latencia (s)',
+            marker: {color: '#f59e0b'}, text: ttft.map(v => v + "s"), textposition: 'auto', visible: false
+        };
 
-						// 2. Barras (Velocidad)
-						var traceSpeed = {
-							x: models,
-							y: speed,
-							type: 'bar',
-							marker: {
-								color: colors
-							},
-							text: speed.map(String),
-							texttemplate: '%{text} t/s',
-							textposition: 'auto',
-							hovertemplate: "<b>%{x}</b><br>Velocidad: %{y} t/s<extra></extra>",
-							visible: false
-						};
+        var traceVerb = {
+            x: models, y: verbosity, type: 'bar', name: 'Verbosidad (Tokens)',
+            marker: {color: '#8b5cf6'}, text: verbosity.map(String), textposition: 'auto', visible: false
+        };
 
-						// 3. Barras (Precisión)
-						var traceAcc = {
-							x: models,
-							y: accuracy,
-							type: 'bar',
-							marker: {
-								color: colors
-							},
-							text: accuracy.map(v => v + "%"),
-							texttemplate: '%{text}',
-							textposition: 'auto',
-							hovertemplate: "<b>%{x}</b><br>Precisión: %{y}%<extra></extra>",
-							visible: false
-						};
+        var data = [traceSpeed, traceAcc, traceTTFT, traceVerb];
 
-						// 4. Barras (Latencia)
-						var traceTTFT = {
-							x: models,
-							y: ttft,
-							type: 'bar',
-							marker: {
-								color: colors
-							},
-							text: ttft.map(v => v + "s"),
-							texttemplate: '%{text}',
-							textposition: 'auto',
-							hovertemplate: "<b>%{x}</b><br>TTFT: %{y}s<extra></extra>",
-							visible: false
-						};
+        // Configuración del diseño y botones
+        var layout = {
+            title: { text: 'Velocidad de Inferencia (Tokens/segundo)', x: 0.5 },
+            xaxis: { title: 'Modelo' },
+            yaxis: { title: 't/s' },
+            template: 'plotly_white',
+            updatemenus: [{
+                type: 'buttons',
+                direction: 'right',
+                x: 0.5, y: 1.2, xanchor: 'center',
+                buttons: [
+                    {
+                        label: 'Velocidad',
+                        method: 'update',
+                        args: [{'visible': [true, false, false, false]},
+                               {'title': 'Velocidad de Inferencia (Tokens/segundo)', 'yaxis': {'title': 't/s'}}]
+                    },
+                    {
+                        label: 'Precisión',
+                        method: 'update',
+                        args: [{'visible': [false, true, false, false]},
+                               {'title': 'Precisión Lógica en Acertijos (%)', 'yaxis': {'title': 'Porcentaje (%)', 'range': [0, 100]}}]
+                    },
+                    {
+                        label: 'Latencia',
+                        method: 'update',
+                        args: [{'visible': [false, false, true, false]},
+                               {'title': 'Tiempo al Primer Token (Segundos)', 'yaxis': {'title': 'Segundos'}}]
+                    },
+                    {
+                        label: 'Verbosidad',
+                        method: 'update',
+                        args: [{'visible': [false, false, false, true]},
+                               {'title': 'Verbosidad (Promedio de Tokens)', 'yaxis': {'title': 'Tokens'}}]
+                    }
+                ]
+            }]
+        };
 
-						// 5. Barras (Verbosidad)
-						var traceVerb = {
-							x: models,
-							y: verbosity,
-							type: 'bar',
-							marker: {
-								color: colors
-							},
-							text: verbosity.map(String),
-							texttemplate: '%{text}',
-							textposition: 'auto',
-							hovertemplate: "<b>%{x}</b><br>Tokens: %{y}<extra></extra>",
-							visible: false
-						};
-
-						var data = [traceScatter, traceSpeed, traceAcc, traceTTFT, traceVerb];
-
-						// --- ANOTACIONES (Para el Scatter) ---
-						var annotationsScatter = [{
-								x: 35.84,
-								y: 80,
-								xref: 'x',
-								yref: 'y',
-								text: '👑 Ganador (Qwen 4B)',
-								showarrow: true,
-								arrowhead: 2,
-								ax: 0,
-								ay: -40,
-								font: {
-									color: '#10b981',
-									size: 14,
-									family: 'Arial Black'
-								}
-							},
-							{
-								x: 75.47,
-								y: 20,
-								xref: 'x',
-								yref: 'y',
-								text: '🚀 Muy rápido, poco preciso',
-								showarrow: true,
-								arrowhead: 1,
-								ax: -60,
-								ay: -30
-							},
-							{
-								x: 16.51,
-								y = 80,
-								xref: 'x',
-								yref: 'y',
-								text: '🧠 Lento pero inteligente',
-								showarrow: true,
-								arrowhead: 1,
-								ax: 60,
-								ay: -30
-							}
-						];
-
-						// --- LAYOUT ---
-						var layout = {
-							title: {
-								text: '<b>Análisis de Rendimiento IA (M4)</b>',
-								font: {
-									size: 24
-								}
-							},
-							template: 'plotly_white',
-							height: 600,
-							margin: {
-								t: 120,
-								b: 50,
-								l: 50,
-								r: 50
-							},
-							legend: {
-								orientation: "h",
-								y: -0.1
-							},
-
-							// Ejes iniciales (Scatter)
-							xaxis: {
-								title: "Velocidad (Tokens/segundo)",
-								gridcolor: "#e5e7eb"
-							},
-							yaxis: {
-								title: "Precisión Lógica (%)",
-								range: [0, 110],
-								gridcolor: "#e5e7eb"
-							},
-							annotations: annotationsScatter,
-
-							updatemenus: [{
-								type: 'buttons',
-								direction: 'left',
-								x: 0.5,
-								y: 1.15,
-								xanchor: 'center',
-								yanchor: 'top',
-								pad: {
-									r: 10,
-									t: 10
-								},
-								showactive: true,
-								bgcolor: '#f3f4f6',
-								bordercolor: '#d1d5db',
-								borderwidth: 1,
-								buttons: [{
-										label: '🗺️ Mapa Eficiencia',
-										method: 'update',
-										args: [{
-												'visible': [true, false, false, false, false]
-											},
-											{
-												'title': '<b>Mapa de Eficiencia:</b> Velocidad vs. Inteligencia',
-												'xaxis': {
-													'title': 'Velocidad (t/s)',
-													'type': 'linear'
-												},
-												'yaxis': {
-													'title': 'Precisión (%)',
-													'range': [0, 105]
-												},
-												'annotations': annotationsScatter
-											}
-										]
-									},
-									{
-										label: '⚡ Velocidad',
-										method: 'update',
-										args: [{
-												'visible': [false, true, false, false, false]
-											},
-											{
-												'title': '<b>Velocidad de Inferencia</b> (Más alto es mejor)',
-												'xaxis': {
-													'title': 'Modelo',
-													'type': 'category'
-												},
-												'yaxis': {
-													'title': 'Tokens / Segundo'
-												},
-												'annotations': []
-											}
-										]
-									},
-									{
-										label: '🎯 Precisión',
-										method: 'update',
-										args: [{
-												'visible': [false, false, true, false, false]
-											},
-											{
-												'title': '<b>Precisión Lógica</b> (Más alto es mejor)',
-												'xaxis': {
-													'title': 'Modelo',
-													'type': 'category'
-												},
-												'yaxis': {
-													'title': 'Porcentaje de Acierto (%)',
-													'range': [0, 105]
-												},
-												'annotations': []
-											}
-										]
-									},
-									{
-										label: '⏱️ Latencia',
-										method: 'update',
-										args: [{
-												'visible': [false, false, false, true, false]
-											},
-											{
-												'title': '<b>Tiempo al Primer Token</b> (Más bajo es mejor)',
-												'xaxis': {
-													'title': 'Modelo',
-													'type': 'category'
-												},
-												'yaxis': {
-													'title': 'Segundos (s)'
-												},
-												'annotations': []
-											}
-										]
-									},
-									{
-										label: '💬 Verbosidad',
-										method: 'update',
-										args: [{
-												'visible': [false, false, false, false, true]
-											},
-											{
-												'title': '<b>Verbosidad</b> (Tokens por respuesta)',
-												'xaxis': {
-													'title': 'Modelo',
-													'type': 'category'
-												},
-												'yaxis': {
-													'title': 'Cantidad de Tokens'
-												},
-												'annotations': []
-											}
-										]
-									}
-								]
-							}]
-						};
-
-						Plotly.newPlot('chart-div', data, layout, {
-							responsive: true
-						});
-					</script>
+        Plotly.newPlot('chart-div', data, layout, {responsive: true});
+    </script>
 </div>
 </div>
 </div>
